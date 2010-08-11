@@ -158,10 +158,6 @@ let g:miniBufExplMapWindowNavArrows = 1
 let g:miniBufExplMapCTabSwitchBufs = 1 
 let g:miniBufExplModSelTarget = 1
 
-" ,t to show tags window
-let Tlist_Show_Menu=1
-nmap <leader>t :TlistToggle<CR>
-
 " ,e to fast finding files. just type beginning of a name and hit TAB
 nmap <leader>e :e **/
 
@@ -237,10 +233,10 @@ if has("autocmd")
 
 endif " has("autocmd")
 
-let Tlist_Ctags_Cmd = "/opt/local/bin/ctags"
-let Tlist_Sort_Type = "name"
-let Tlist_Show_Menu = 1
-let Tlist_Use_Right_Window = 1
+" let Tlist_Ctags_Cmd = "/opt/local/bin/ctags"
+" let Tlist_Sort_Type = "name"
+" let Tlist_Show_Menu = 1
+" let Tlist_Use_Right_Window = 1
 map <leader>t :TlistOpen<cr>
 
 let g:showfuncctagsbin = "/opt/local/bin/ctags"
