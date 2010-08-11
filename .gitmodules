@@ -1,0 +1,3 @@
+[submodule "bundles/vcscommand"]
+	path = bundles/vcscommand
+	url = git://repo.or.cz/vcscommand
