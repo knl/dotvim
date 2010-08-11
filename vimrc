@@ -35,7 +35,7 @@ set laststatus=2
 "set statusline=%<%f\ %h%m%r%#warningmsg#%{SyntasticStatuslineFlag()}%*%=%-14.(%l,%c%V%)\ %P
 " highlihgt the file name
 hi User1 term=bold,reverse cterm=bold ctermfg=4 ctermbg=2 gui=bold guifg=Blue guibg=#44aa00
-set statusline=%<%1*%f%*\ %h%m%r%#warningmsg#%{SyntasticStatuslineFlag()}%*%=%-14.(%l,%c%V%)\ %P
+"set statusline=%<%1*%f%*\ %h%m%r%#warningmsg#%{SyntasticStatuslineFlag()}%*%=%-14.(%l,%c%V%)\ %P
 
 let VCSCommandEnableBufferSetup=1
 set statusline=%<%f\ %{VCSCommandGetStatusLine()}%h%m%r%=%-14.(%l,%c%V%)\ %P
@@ -67,9 +67,12 @@ set ruler
 set visualbell
 set autoindent		" always set autoindenting on
 set smartindent     " smart indenting
+set preserveindent  " preserve indentination
 
+" tabs and spaces
 set ts=4
 set sw=4
+set sts=4
 
 "fixdel
 
@@ -198,6 +201,7 @@ set shell=/bin/zsh
 if has("autocmd")
 
 	autocmd BufRead,BufNew :call UMiniBufExplorer
+	autocmd Filetype tex setlocal nofoldenable
 
 	" Enable file type detection.
 	" Use the default filetype settings, so that mail gets 'tw' set to 72,
@@ -221,6 +225,15 @@ if has("autocmd")
 
 	" for git
 	autocmd FileType gitcommit DiffGitCached | wincmd R | wincmd p
+
+	" idents for c/c++ programs
+	augroup cprograms
+		autocmd FileType objc	     setlocal sw=4 sts=4 ai 
+		autocmd FileType h	     setlocal sw=4 sts=4 ai tw=0
+		autocmd FileType c	     setlocal sw=4 sts=4 cindent tw=0 cino= ai
+		autocmd FileType cpp   	     setlocal sw=4 sts=4 cindent tw=0 cino= ai
+	augroup END
+
 
 endif " has("autocmd")
 
@@ -369,3 +382,6 @@ cnoremap <C-K>      <C-U>
 
 cnoremap <C-P> <Up>
 cnoremap <C-N> <Down>
+
+cunmap <Left>
+cunmap <Right>
