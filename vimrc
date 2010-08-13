@@ -83,8 +83,8 @@ set wildignore=.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jp
 
 hi SpellErrors guibg=red guifg=black ctermbg=red ctermfg=black
 
-set backupdir=~/.backup,.
-set directory=~/.backup,~/tmp,.
+set backupdir=$VIM/backup,.
+set directory=$VIM/tmp,.
 
 " enable showmmarks
 let g:showmarks_enable = 1
