@@ -188,7 +188,7 @@ endif
 
 let g:yankring_replace_n_pkey = '<leader>['
 let g:yankring_replace_n_nkey = '<leader>]'
-let g:yankring_history_file = '$HOME/.vim/tmp'
+let g:yankring_history_dir = '$HOME/.vim/tmp'
 
 set shell=/bin/zsh
 
