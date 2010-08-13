@@ -28,8 +28,6 @@ set cinoptions=:0,(s,u0,U1,g0,t0
 set modelines=5
 set tags=tags;/
 
-set laststatus=2
-
 " default:
 " set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 "set statusline=%<%f\ %h%m%r%#warningmsg#%{SyntasticStatuslineFlag()}%*%=%-14.(%l,%c%V%)\ %P
