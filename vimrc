@@ -227,10 +227,10 @@ if has("autocmd")
 
 	" idents for c/c++ programs
 	augroup cprograms
-		autocmd FileType objc	     setlocal sw=4 sts=4 ai 
-		autocmd FileType h	     setlocal sw=4 sts=4 ai tw=0
-		autocmd FileType c	     setlocal sw=4 sts=4 cindent tw=0 cino= ai
-		autocmd FileType cpp   	     setlocal sw=4 sts=4 cindent tw=0 cino= ai
+		autocmd FileType objc	     setlocal sw=4 sts=4 ai  fdm=manual
+		autocmd FileType h	     setlocal sw=4 sts=4 ai tw=0 fdm=manual
+		autocmd FileType c	     setlocal sw=4 sts=4 cindent tw=0 cino= ai fdm=manual
+		autocmd FileType cpp   	     setlocal sw=4 sts=4 cindent tw=0 cino= ai fdm=manual
 	augroup END
 
 
