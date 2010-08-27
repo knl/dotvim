@@ -1,3 +1,6 @@
 [submodule "bundles/vcscommand"]
 	path = bundles/vcscommand
 	url = git://repo.or.cz/vcscommand
+[submodule "bundles/supertab"]
+	path = bundles/supertab
+	url = git://github.com/ervandew/supertab.git
