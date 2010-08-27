@@ -127,6 +127,7 @@ nmap <silent> <C-N> :silent noh<CR>
 " Ctrol-E to switch between 2 last buffers
 nmap <C-E> :b#<CR>
 
+" NERDCommenter {
 " Ctrl-P to Display the file browser tree
 nmap <C-P> :NERDTreeToggle<CR>
 " ,p to show current file in the tree
@@ -137,10 +138,9 @@ nmap <leader>/ :call NERDComment(0, "invert")<cr>
 vmap <leader>/ :call NERDComment(0, "invert")<cr>
 
 let g:NERD_shut_up=1
+" }
 
-""""""""""""""""""""""""""""""
-" Minibuffer
-""""""""""""""""""""""""""""""
+" miniBufExplorer {
 let g:miniBufExplModSelTarget = 1
 let g:miniBufExplorerMoreThanOne = 2
 let g:miniBufExplModSelTarget = 0
@@ -167,7 +167,9 @@ nmap <leader>f :FufFile **/<CR>
 "let g:miniBufExplorerMoreThanOne = 100
 "let g:miniBufExplUseSingleClick = 1
 nmap <Leader>b :MiniBufExplorer<cr>
+" }
 
+" ConqueTerm {
 let g:Conque_Read_Timeout = 50 " timeout for waiting for command output.
 let g:Conque_TERM = 'xterm'
 
@@ -176,9 +178,9 @@ nmap <Leader>sh :ConqueSplit bash<cr>
 
 " ,r to open vimshell window
 nmap <Leader>r :ConqueSplit 
+" }
 
-
-
+" YankRing {
 " map ,y to show the yankring
 nmap <leader>y :YRShow<cr>
 
@@ -189,6 +191,8 @@ endif
 let g:yankring_replace_n_pkey = '<leader>['
 let g:yankring_replace_n_nkey = '<leader>]'
 let g:yankring_history_dir = '$HOME/.vim/tmp'
+" }
+
 
 set shell=/bin/zsh
 
@@ -284,9 +288,7 @@ if has("cscope")
 
 endif
 
-""""""""""""""""""""""""""""""
-" LaTeX Suite things
-""""""""""""""""""""""""""""""
+" LaTeX Suite things {
 "set grepprg=grep\ -nH\ $*
 let g:tex_flavor = "latex"
 
@@ -318,6 +320,8 @@ let g:Tex_IgnoredWarnings ='
 			\"There were undefined references\n".
 			\"Citation %.%# undefined\n".
 			\"\oval, \circle, or \line size unavailable\n"'
+
+" }
 
 " ShowFuncName
 fun! ShowFuncName()
