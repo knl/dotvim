@@ -121,7 +121,7 @@ map <F2> :%s/\s*$//g<cr>:noh<cr>''
 
 
 " extended '%' mapping for if/then/else/end etc
-runtime macros/matchit.vim
+runtime plugin/matchit.vim
 
 " Make shift-insert work like in Xterm
 map <S-Insert> <MiddleMouse>
