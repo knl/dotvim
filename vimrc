@@ -78,6 +78,8 @@ set sts=4
 set noeol
 set binary
 
+set shell=/bin/zsh
+
 "Ignore these files when completing names and in Explorer
 set wildignore=.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif
 
@@ -85,6 +87,10 @@ hi SpellErrors guibg=red guifg=black ctermbg=red ctermfg=black
 
 set backupdir=$HOME/.vim/backup,.
 set directory=$HOME/.vim/tmp,.
+
+if has("mouse")
+  set mouse=a
+endif
 
 " enable showmmarks
 let g:showmarks_enable = 1
@@ -156,12 +162,6 @@ let g:miniBufExplMapWindowNavArrows = 1
 let g:miniBufExplMapCTabSwitchBufs = 1 
 let g:miniBufExplModSelTarget = 1
 
-" ,e to fast finding files. just type beginning of a name and hit TAB
-nmap <leader>e :e **/
-
-" ,f to fast finding files using fuzzy finder.
-nmap <leader>f :FufFile **/<CR>
-
 " ,b to display current buffers list
 "let g:miniBufExplVSplit = 25
 "let g:miniBufExplorerMoreThanOne = 100
@@ -184,17 +184,17 @@ nmap <Leader>r :ConqueSplit
 " map ,y to show the yankring
 nmap <leader>y :YRShow<cr>
 
-if has("mouse")
-  set mouse=a
-endif
-
 let g:yankring_replace_n_pkey = '<leader>['
 let g:yankring_replace_n_nkey = '<leader>]'
 let g:yankring_history_dir = '$HOME/.vim/tmp'
 " }
 
+" ,e to fast finding files. just type beginning of a name and hit TAB
+nmap <leader>e :e **/
 
-set shell=/bin/zsh
+" ,f to fast finding files using fuzzy finder.
+nmap <leader>f :FufFile **/<CR>
+
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
