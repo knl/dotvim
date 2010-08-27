@@ -384,3 +384,6 @@ cnoremap <C-N> <Down>
 
 cunmap <Left>
 cunmap <Right>
+
+" Deal with DelimitMate
+inoremap <C-Tab> <C-R>=delimitMate#JumpAny("\<C-Tab>")<CR>
