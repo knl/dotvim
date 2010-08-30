@@ -68,6 +68,8 @@ set autoindent		" always set autoindenting on
 set smartindent     " smart indenting
 set preserveindent  " preserve indentination
 
+set backspace=indent,eol,start		" allow backspacing over everything in insert mode
+
 " tabs and spaces
 set ts=4
 set sw=4
