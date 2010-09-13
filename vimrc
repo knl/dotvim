@@ -17,7 +17,7 @@ set ofu=syntaxcomplete#Complete
 
 " syntastic
 let g:syntastic_enable_signs=1
-let g:syntastic_auto_loc_list=1
+let g:syntastic_auto_loc_list=0
 
 "colorscheme vividchalk
 colorscheme zenburn
@@ -37,7 +37,7 @@ hi User1 term=bold,reverse cterm=bold ctermfg=4 ctermbg=2 gui=bold guifg=Blue gu
 "set statusline=%<%1*%f%*\ %h%m%r%#warningmsg#%{SyntasticStatuslineFlag()}%*%=%-14.(%l,%c%V%)\ %P
 
 let VCSCommandEnableBufferSetup=1
-set statusline=%<%f\ %{VCSCommandGetStatusLine()}%h%m%r%=%-14.(%l,%c%V%)\ %P
+set statusline=%<%f\ %{VCSCommandGetStatusLine()}\ %{SyntasticStatuslineFlag()}%h%m%r%=%-14.(%l,%c%V%)\ %P
 set laststatus=2
 "
 "set cuc
