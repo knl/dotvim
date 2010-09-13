@@ -66,7 +66,11 @@ set ruler
 set visualbell
 set autoindent		" always set autoindenting on
 set smartindent     " smart indenting
+set copyindent		" copy indent from previous line on autoindent
 set preserveindent  " preserve indentination
+
+set shiftwidth=4
+set shiftround		" use a multiple of sw for <
 
 set backspace=indent,eol,start		" allow backspacing over everything in insert mode
 
@@ -74,7 +78,7 @@ set backspace=indent,eol,start		" allow backspacing over everything in insert mo
 set ts=4
 set sw=4
 set sts=4
-set noexpandtab " do not expand tabs
+set expandtab " expand tabs
 
 "fixdel
 
@@ -231,10 +235,10 @@ if has("autocmd")
 
 	" idents for c/c++ programs
 	augroup cprograms
-		autocmd FileType objc	     setlocal ts=8 sw=4 sts=4 ai  fdm=manual
-		autocmd FileType h	     setlocal ts=8 sw=4 sts=4 ai tw=0 fdm=manual
-		autocmd FileType c	     setlocal ts=8 sw=4 sts=4 cindent tw=0 cino= ai fdm=manual
-		autocmd FileType cpp   	     setlocal ts=8 sw=4 sts=4 cindent tw=0 cino= ai fdm=manual
+		autocmd FileType objc	     setlocal ts=4 sw=4 sts=4 ai  fdm=manual
+		autocmd FileType h	     setlocal ts=4 sw=4 sts=4 ai tw=0 fdm=manual
+		autocmd FileType c	     setlocal ts=4 sw=4 sts=4 cindent tw=0 cino= ai fdm=manual
+		autocmd FileType cpp   	     setlocal ts=4 sw=4 sts=4 cindent tw=0 cino= ai fdm=manual
 	augroup END
 
 
