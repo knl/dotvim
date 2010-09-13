@@ -395,3 +395,8 @@ cunmap <Right>
 
 " Deal with DelimitMate
 inoremap <C-Tab> <C-R>=delimitMate#JumpAny("\<C-Tab>")<CR>
+
+" It clears the search buffer
+" nmap <silent> <leader>/ :let @/=""<CR>
+
+nnoremap ; :
