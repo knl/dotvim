@@ -133,9 +133,17 @@ map <leader>cd :cd %:p:h<cr>
 set listchars=tab:▷⋅,trail:·,eol:$
 nmap <silent> <leader>s :set nolist!<CR>
 
+" Remove trailing whitespace
+nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+
 "Remove indenting on empty lines
 map <F2> :%s/\s*$//g<cr>:noh<cr>''
 
+" Fix matching
+nnoremap / /\v
+vnoremap / /\v
+" remove highlight on matched
+nnoremap <leader><space> :silent noh<cr>
 
 " extended '%' mapping for if/then/else/end etc
 runtime plugin/matchit.vim
@@ -144,8 +152,11 @@ runtime plugin/matchit.vim
 map <S-Insert> <MiddleMouse>
 map! <S-Insert> <MiddleMouse>
 
-" Ctrl-N to disable search match highlight
-nmap <silent> <C-N> :silent noh<CR>
+" Ack
+nnoremap <leader>a :Ack
+
+" Select pasted text
+nnoremap <leader>v V`]
 
 " Ctrol-E to switch between 2 last buffers
 nmap <C-E> :b#<CR>
