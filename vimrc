@@ -67,21 +67,20 @@ set history=1000
 set wildmenu
 set ruler
 set visualbell
+
 set autoindent		" always set autoindenting on
 set smartindent     " smart indenting
 set copyindent		" copy indent from previous line on autoindent
 set preserveindent  " preserve indentination
 
-set shiftwidth=4
-set shiftround		" use a multiple of sw for <
-
 set backspace=indent,eol,start		" allow backspacing over everything in insert mode
 
 " tabs and spaces
-set ts=4
-set sw=4
-set sts=4
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
 set expandtab " expand tabs
+set shiftround		" use a multiple of sw for <
 
 "fixdel
 if has("macunix") 
