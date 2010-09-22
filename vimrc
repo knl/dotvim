@@ -268,7 +268,7 @@ endif " has("autocmd")
 " let Tlist_Sort_Type = "name"
 " let Tlist_Show_Menu = 1
 " let Tlist_Use_Right_Window = 1
-map <leader>t :TlistOpen<cr>
+map <leader>T :TlistOpen<cr>
 
 let g:showfuncctagsbin = "/opt/local/bin/ctags"
 
