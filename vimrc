@@ -349,6 +349,9 @@ let g:Tex_IgnoredWarnings ='
 			\"Citation %.%# undefined\n".
 			\"\oval, \circle, or \line size unavailable\n"'
 
+let Tex_FoldedSections=""
+let Tex_FoldedEnvironments=""
+let Tex_FoldedMisc=""
 " }
 
 " ShowFuncName
