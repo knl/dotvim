@@ -4,3 +4,9 @@
 [submodule "bundles/supertab"]
 	path = bundles/supertab
 	url = git://github.com/ervandew/supertab.git
+[submodule "bundles/ack"]
+	path = bundles/ack
+	url = http://github.com/mileszs/ack.vim.git
+[submodule "bundles/command-t"]
+	path = bundles/command-t
+	url = git://github.com/wincent/Command-T.git
