@@ -46,6 +46,7 @@ set laststatus=2
 
 "set number
 
+set encoding=utf-8
 set textwidth=0         " Do not wrap words (insert)
 set nowrap              " Do not wrap words (view)
 set showcmd             " Show (partial) command in status line.
@@ -53,6 +54,7 @@ set showmatch           " Show matching brackets.
 set ignorecase          " Do case insensitive matching
 set smartcase           " do not ignore if search pattern has CAPS
 set incsearch           " Incremental search
+set gdefault			" Turn on global replace (//g)
 "set autowriteall        " Automatically save before commands like :next and :make
 set hlsearch            " Highlight search match
 set hidden              " enable multiple modified buffers
@@ -82,6 +84,13 @@ set sts=4
 set expandtab " expand tabs
 
 "fixdel
+if has("macunix") 
+	"let s:name = system("uname")
+	"if s:name == "Darwin"
+		set relativenumber
+		set ttyfast
+	"endif
+endif
 
 " prevent vim from adding that stupid empty line at the end of every file
 set noeol
