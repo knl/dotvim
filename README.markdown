@@ -12,6 +12,8 @@ From your homedirectory (on Linux/Mac OSX):
 * `git clone git://github.com/astrails/dotvim.git`
 * `ln -sfn dotvim .vim`
 * `ln -sfn dotvim/vimrc .vimrc`
+* you create and edit ~/.vim\_local if you want to have your some
+  local/personal settings you don't want to commit into the repo
 
 Note: if you alrady have `~/.vim` `~/.vimrc` REMOVE THEM (you might want to backup them ifirst :)
 
@@ -33,7 +35,7 @@ Check out the 'vimrc' file for more...
     hax0r vim script to give you a tree explorer
 
     * `Ctrl-P` - open directory browser
-	* `,p` - to find and highlight the currently open file in the tree
+    * `,p` - to find and highlight the currently open file in the tree
 
 *   nerdcommenter ([github](http://github.com/scrooloose/nerdcommenter))
 
@@ -44,11 +46,20 @@ Check out the 'vimrc' file for more...
     * `,cu` - Uncomment
     * check docs for more
 
+*   [PeepOpen](http://peepcode.com/products/peepopen)
+
+    * `,,` - open PeepOpen popup
+
+	Dont forget to set MacVim's general setting:
+	Apple+, to open macvim pref pane => General:
+	change "Open files from applications" to "in the current window / with a
+	tab for each file"
+
 *   fuzzyfinder 3.5 ([vim.org](http://www.vim.org/scripts/script.php?script_id=1984))
 
-	buffer/file/command/tag/etc explorer with fuzzy matching
+    buffer/file/command/tag/etc explorer with fuzzy matching
 
-	* `,f` - FufFile - fuzzy find file
+    * `,f` - FufFile - fuzzy find file
 
 *   autocomplpop 2.14.1 ([vim.org](http://www.vim.org/scripts/script.php?script_id=1879))
 
@@ -71,11 +82,11 @@ Check out the 'vimrc' file for more...
 
 *    yankring 100 ([vim.org](http://www.vim.org/scripts/script.php?script_id=1234))
 
-     Maintains a history of previous yanks, changes and deletes 
+     Maintains a history of previous yanks, changes and deletes
 
-	 * `,y` to show the yankring
-	 * `,[`/`,]` - to cycle the just-pasted text though the yankring.
-	 * `:h yankring.txt` and `:h yankring-tutorial` for more
+     * `,y` to show the yankring
+     * `,[`/`,]` - to cycle the just-pasted text though the yankring.
+     * `:h yankring.txt` and `:h yankring-tutorial` for more
 
 *   fugitive ([github](http://github.com/tpope/vim-fugitive))
 
@@ -108,37 +119,37 @@ Check out the 'vimrc' file for more...
 
     Ruby on Rails: easy file navigation, enhanced syntax highlighting, and more
 
-	* `:AV` - open "alternate" file in a new vertical split
-	* `:AS` - open "alternate" file in a new horizontal split
-	* `:RV` - open "related" file in a new vertical split
-	* `:RS` - open "related" file in a new horizontal split
-	* `:Rextract` - extract partial (select text for extraction first)
-	* `:Rinvert` - takes a self.up migration and writes a self.down.
-	* `gf` - remapped to take context into account. recognizes models
-	  associations, partials etc.
-	* `:h rails` for more info ;)
+    * `:AV` - open "alternate" file in a new vertical split
+    * `:AS` - open "alternate" file in a new horizontal split
+    * `:RV` - open "related" file in a new vertical split
+    * `:RS` - open "related" file in a new horizontal split
+    * `:Rextract` - extract partial (select text for extraction first)
+    * `:Rinvert` - takes a self.up migration and writes a self.down.
+    * `gf` - remapped to take context into account. recognizes models
+      associations, partials etc.
+    * `:h rails` for more info ;)
 
 *   syntastic ([github](http://github.com/scrooloose/syntastic))
-	
-	syntax checking plugin
 
-	it will display the number of syntax errors in the current file in the vim's status line.
+    syntax checking plugin
 
-	use `:Errors` to display a window detailing the errors
+    it will display the number of syntax errors in the current file in the vim's status line.
+
+    use `:Errors` to display a window detailing the errors
 
 *   snipmate ([vim.org](http://www.vim.org/scripts/script.php?script_id=2540)) ([github](http://github.com/msanders/snipmate.vim))
 
     TextMate-style snippets for Vim
 
-	write a snipped text and press TAB to expand it.
+    write a snipped text and press TAB to expand it.
 
     To see the list of available snippets type `Ctrl-R <Tab>` in the insert mode
 
 *   space ([github](http://github.com/scrooloose/vim-space))
 
-	Smart Space key for Vim
+    Smart Space key for Vim
 
-	press SPACE to repeat last motion command
+    press SPACE to repeat last motion command
 
 *   surround ([vim.org](http://www.vim.org/scripts/script.php?script_id=1697)) ([github](http://github.com/tpope/vim-surround))
 
@@ -146,19 +157,31 @@ Check out the 'vimrc' file for more...
 
     * `dsX` - delete surround X
     * `csXY` - change surround X with Y
-    * `s/S` in visual mode - wrap selection 
+    * `s/S` in visual mode - wrap selection
     * `ysMovementX` - surround movement with X
 
     You should REALLY read the docs if you want to use this one
 
+*   align ([vim.org](http://www.vim.org/scripts/script.php?script_id=294)) ([github](http://github.com/tsaleh/vim-align))
+
+    Align and AlignMaps lets you align statements on their equal signs, make comment boxes, align comments, align declarations, etc.
+
+    * `,t=` - align on =
+    * `,tsp` - align on whitespace
+    * `,t,` - align on commas
+    * `,t|` - align on vertical bars
+    * `,acom` - align comments (C/C++)
+    * `:AlignSEPARATORS` - align on separators
+    * `:h align` - see help for more options
+
 *   conque ([vim.org](http://www.vim.org/scripts/script.php?script_id=2771))
 
-	Conque is a Vim plugin allowing users to execute and interact with programs, typically a shell such as bash, inside a buffer window.
+    Conque is a Vim plugin allowing users to execute and interact with programs, typically a shell such as bash, inside a buffer window.
 
-	This one is much better then vimsh that I was using before
+    This one is much better then vimsh that I was using before
 
-	`,sh` - start a vimsh window
-	`,r`  - opens vim prompt for command to run
+    `,sh` - start a vimsh window
+    `,r`  - opens vim prompt for command to run
 
 *   drillctg 1.1.3 ([vim.org](http://www.vim.org/scripts/script.php?script_id=2013))
 
@@ -170,6 +193,23 @@ Check out the 'vimrc' file for more...
 
     A colorscheme strangely reminiscent of Vibrant Ink for a certain OS X editor
 
+*   sessionman ([vim.org](http://www.vim.org/scripts/script.php?script_id=2010))
+
+    work with Vim sessions by keeping them in the dedicated location and by providing commands to list, open, and save sessions.
+
+	* `,S`, `:SessionList` - list sessions
+	* `,SS`, `:SessionSave` - save session
+	* `,SA`, `:SessionSaveAs` - save new session
+	* check out "Sessions" submenu under "File"
+
+*   ack.vim ([vim.org](http://www.vim.org/scripts/script.php?script_id=2572)) ([github](http://github.com/mileszs/ack.vim))
+
+    This plugin is a front for the Perl module App::Ack. Ack can be used as a replacement for 99% of the uses of grep.
+
+	* `:Ack [options] {pattern} [{directory}]` - grep for the pattern in side directory and open result in a QuickFix window
+	* `:Ack --ruby ...` - search only ruby files.
+	* `:h Ack` - more help about Ack
+
 #### "Support" and minor plugins
 
 *   pathogen 1.2 ([vim.org](http://www.vim.org/scripts/script.php?script_id=2332)) ([github](http://github.com/tpope/vim-pathogen))
@@ -179,13 +219,13 @@ Check out the 'vimrc' file for more...
 
     Already configured
 
-*   misc-lang-settings 
+*   misc-lang-settings
 
     ts/sw/et settings for various filetypes
 
 *   endwise ([vim.org](http://www.vim.org/scripts/script.php?script_id=2386)) ([github](http://github.com/tpope/vim-endwise))
 
-    Wisely add "end" in ruby, endfunction/endif/more in vim script, etc 
+    Wisely add "end" in ruby, endfunction/endif/more in vim script, etc
 
 *   delimitMate ([vim.org](http://www.vim.org/scripts/script.php?script_id=2754)) ([github](http://github.com/Raimondi/delimitMate))
 
@@ -213,7 +253,7 @@ Check out the 'vimrc' file for more...
 
 #### Syntax plugins
 
-*   tmux 
+*   tmux
 
     [tmux](http://tmux.sourceforge.net/) syntax  suupport (extracted from tmux-1.1)
 
@@ -241,6 +281,10 @@ Check out the 'vimrc' file for more...
 
     syntax for [Markdown](http://daringfireball.net/projects/markdown/)
 
+*   coffe-script ([github](http://github.com/kchmck/vim-coffee-script))
+
+	syntax for [Coffee script](http://jashkenas.github.com/coffee-script/)
+
 ### Misc
 
 The following is a list of commands and key bindings that I personally find interesting
@@ -251,8 +295,14 @@ randomly chosen bits of vim goodness.
 * `ga` print ascii value of character under the cursor
 * `g#` like "#", but without using "\<" and "\>"
 * `g<` display previous command output
-* `z<CR>` redraw, cursor line to top of window
-* `z-` redraw, cursor line at bottom of window
+* `zt` scroll cursor line to top
+* `zz` scroll cursor line to center
+* `zb` scroll cursor line to bottom
 * `CTRL-W x` exchange current window with n-th window (or next if no count given)
 * `gv` reselect last selection
+* `gt` next tab
+* `gT` prev tab
+* `ci` change inside delimiters
+* `di` delete inside delimiters
+* `@@` execute last macro
 

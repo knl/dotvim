@@ -2,8 +2,8 @@ set nocompatible
 
 runtime! autoload/pathogen.vim
 if exists('g:loaded_pathogen')
-call pathogen#helptags()
-call pathogen#runtime_prepend_subdirectories(expand('~/.vim/bundles'))
+  call pathogen#helptags()
+  call pathogen#runtime_prepend_subdirectories(expand('~/.vim/bundles'))
 end
 
 syntax on
@@ -36,6 +36,9 @@ set tags=tags;/
 " highlihgt the file name
 hi User1 term=bold,reverse cterm=bold ctermfg=4 ctermbg=2 gui=bold guifg=Blue guibg=#44aa00
 "set statusline=%<%1*%f%*\ %h%m%r%#warningmsg#%{SyntasticStatuslineFlag()}%*%=%-14.(%l,%c%V%)\ %P
+if filereadable(expand("~/.vim_local"))
+  source ~/.vim_local
+endif
 
 let VCSCommandEnableBufferSetup=1
 set statusline=%<%f\ %{VCSCommandGetStatusLine()}\ %{SyntasticStatuslineFlag()}%h%m%r%=%-14.(%l,%c%V%)\ %P
@@ -60,6 +63,7 @@ set hlsearch            " Highlight search match
 set hidden              " enable multiple modified buffers
 set nobackup            " do not write backup files
 set autoread		" Set to auto read when a file is changed from the outside
+"set noswapfile          " do not write .swp files
 set foldcolumn=0        " columns for folding
 set foldmethod=indent
 set foldlevel=9
@@ -67,6 +71,9 @@ set history=1000
 set wildmenu
 set ruler
 set visualbell
+set autoread            " automatically read feil that has been changed on disk and doesn't have changes in vim
+set backspace=indent,eol,start
+set guioptions-=T       " disable toolbar"
 
 set autoindent		" always set autoindenting on
 set smartindent     " smart indenting
@@ -116,9 +123,28 @@ hi! link ShowMarksHLu LineNr
 hi! link ShowMarksHLo LineNr
 hi! link ShowMarksHLm LineNr
 
-
 " Make
 :command -nargs=* Make make <args> | cwindow 3
+
+"set completeopt=menuone,preview,longest
+set completeopt=menuone,preview
+"inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Omni completion settings
+set ofu=syntaxcomplete#Complete
+let g:rubycomplete_buffer_loading = 0
+let g:rubycomplete_classes_in_global = 1
+" completing Rails hangs a lot
+"let g:rubycomplete_rails = 1
+
+" syntastic
+let g:syntastic_enable_signs=1
+let g:syntastic_auto_loc_list=1
+
+" delimitMate
+let g:delimitMate_expand_space = 1
+let g:delimitMate_expand_cr = 1
+
 
 let mapleader = ","
 let g:mapleader = ","
@@ -189,6 +215,10 @@ let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 1 
 let g:miniBufExplMapCTabSwitchBufs = 1 
 let g:miniBufExplModSelTarget = 1
+
+nmap <leader>S :SessionList<CR>
+nmap <leader>SS :SessionSave<CR>
+nmap <leader>SA :SessionSaveAs<CR>
 
 " ,b to display current buffers list
 "let g:miniBufExplVSplit = 25
