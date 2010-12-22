@@ -12,3 +12,6 @@ set lines=70
 " Make shift-insert work like in Xterm
 map <S-Insert> <MiddleMouse>
 map! <S-Insert> <MiddleMouse>
+
+au WinEnter * setlocal relativenumber
+au WinLeave * setlocal norelativenumber
