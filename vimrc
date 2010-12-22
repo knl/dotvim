@@ -89,7 +89,8 @@ set softtabstop=4
 set expandtab " expand tabs
 set shiftround		" use a multiple of sw for <
 
-"fixdel
+"set formatoptions=qrn1
+
 if has("macunix") 
 	"let s:name = system("uname")
 	"if s:name == "Darwin"
