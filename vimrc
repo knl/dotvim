@@ -295,16 +295,16 @@ if has("autocmd")
 
 endif " has("autocmd")
 
-" let Tlist_Ctags_Cmd = "/opt/local/bin/ctags"
+" let Tlist_Ctags_Cmd = "/usr/local/bin/ctags"
 " let Tlist_Sort_Type = "name"
 " let Tlist_Show_Menu = 1
 " let Tlist_Use_Right_Window = 1
 map <leader>T :TlistOpen<cr>
 
-let g:showfuncctagsbin = "/opt/local/bin/ctags"
+let g:showfuncctagsbin = "/usr/local/bin/ctags"
 
 if has("cscope")
-	set csprg=/opt/local/bin/cscope
+	set csprg=/usr/local/bin/cscope
 	set csto=0
 	set cst
 	set nocsverb
