@@ -259,7 +259,7 @@ nmap <leader>f :FufFile **/<CR>
 if has("autocmd")
 
 	autocmd BufRead,BufNew :call UMiniBufExplorer
-	autocmd Filetype tex setlocal nofoldenable
+	autocmd Filetype tex setlocal nofoldenable tw=80 spell spelllang=en
 
 	" Enable file type detection.
 	" Use the default filetype settings, so that mail gets 'tw' set to 72,
