@@ -281,9 +281,6 @@ if has("autocmd")
 
 	augroup END
 
-	" for git
-	autocmd FileType gitcommit DiffGitCached | wincmd R | wincmd p
-
 	" idents for c/c++ programs
 	augroup cprograms
 		autocmd FileType objc	     setlocal ts=4 sw=4 sts=4 ai  fdm=manual
