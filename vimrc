@@ -103,7 +103,7 @@ endif
 set noeol
 set binary
 
-set shell=/bin/zsh
+set shell=/usr/local/bin/zsh
 
 "Ignore these files when completing names and in Explorer
 set wildignore=.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif
