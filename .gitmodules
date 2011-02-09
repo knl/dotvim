@@ -22,3 +22,6 @@
 [submodule "bundles/nerdcommenter"]
 	path = bundles/nerdcommenter
 	url = git://github.com/scrooloose/nerdcommenter.git
+[submodule "bundles/conque"]
+	path = bundles/conque
+	url = git://github.com/rson/vim-conque.git
