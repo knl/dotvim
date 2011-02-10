@@ -25,3 +25,6 @@
 [submodule "bundles/conque"]
 	path = bundles/conque
 	url = git://github.com/rson/vim-conque.git
+[submodule "bundles/unimpaired"]
+	path = bundles/unimpaired
+	url = git://github.com/tpope/vim-unimpaired.git
