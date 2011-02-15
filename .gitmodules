@@ -31,3 +31,6 @@
 [submodule "bundles/markdown"]
 	path = bundles/markdown
 	url = https://github.com/vim-scripts/Markdown.git
+[submodule "bundles/vim-preview"]
+	path = bundles/vim-preview
+	url = git://github.com/greyblake/vim-preview.git
