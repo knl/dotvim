@@ -37,3 +37,6 @@
 [submodule "bundles/perldoc"]
 	path = bundles/perldoc
 	url = git://github.com/hotchpotch/perldoc-vim.git
+[submodule "bundles/fuzzyfinder"]
+	path = bundles/fuzzyfinder
+	url = git://github.com/vim-scripts/FuzzyFinder.git
