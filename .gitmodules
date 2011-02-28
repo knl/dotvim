@@ -43,3 +43,6 @@
 [submodule "bundles/yankring"]
 	path = bundles/yankring
 	url = git://github.com/ornicar/vim-yankring.git
+[submodule "bundles/l9"]
+	path = bundles/l9
+	url = git://github.com/slack/vim-l9.git
