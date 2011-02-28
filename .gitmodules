@@ -40,3 +40,6 @@
 [submodule "bundles/fuzzyfinder"]
 	path = bundles/fuzzyfinder
 	url = git://github.com/vim-scripts/FuzzyFinder.git
+[submodule "bundles/yankring"]
+	path = bundles/yankring
+	url = git://github.com/ornicar/vim-yankring.git
