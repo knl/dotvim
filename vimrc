@@ -16,10 +16,6 @@ set completeopt=menuone,preview
 " Omni completion settings
 set ofu=syntaxcomplete#Complete
 
-" syntastic
-let g:syntastic_enable_signs=1
-let g:syntastic_auto_loc_list=0
-
 "colorscheme vividchalk
 colorscheme zenburn
 set background=dark
@@ -140,7 +136,7 @@ let g:rubycomplete_classes_in_global = 1
 
 " syntastic
 let g:syntastic_enable_signs=1
-let g:syntastic_auto_loc_list=1
+let g:syntastic_auto_loc_list=0
 
 " delimitMate
 let g:delimitMate_expand_space = 1
