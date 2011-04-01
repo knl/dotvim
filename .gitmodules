@@ -43,6 +43,9 @@
 [submodule "bundles/l9"]
 	path = bundles/l9
 	url = git://github.com/vim-scripts/L9.git
+[submodule "bundles/vim-colors-solarized"]
+	path = bundles/vim-colors-solarized
+	url = https://github.com/altercation/vim-colors-solarized
 [submodule "bundles/yankring"]
 	path = bundles/yankring
 	url = git://github.com/ornicar/vim-yankring.git
