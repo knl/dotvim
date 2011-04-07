@@ -16,10 +16,6 @@ set completeopt=menuone,preview
 " Omni completion settings
 set ofu=syntaxcomplete#Complete
 
-"colorscheme vividchalk
-colorscheme zenburn
-set background=dark
-
 let bash_is_sh=1
 set cinoptions=:0,(s,u0,U1,g0,t0
 
@@ -447,3 +443,36 @@ inoremap <C-Tab> <C-R>=delimitMate#JumpAny("\<C-Tab>")<CR>
 " nmap <silent> <leader>/ :let @/=""<CR>
 
 nnoremap ; :
+
+
+" Set color scheme according to current time of day.
+" We use dark for night, light for day time
+function! SetColorSchemeTime()
+  let hr = str2nr(strftime('%H'))
+  if hr <= 7
+    let i = 0
+  elseif hr <= 20
+    let i = 1
+  else
+    let i = 0
+  endif
+  if i == 0
+  	  let g:solarized_style="dark"
+  	  set background=dark
+  else
+  	  let g:solarized_style="light"
+  	  set background=light
+  endif
+  colorscheme solarized
+  redraw
+endfunction
+command -bar -nargs=0 SetColorSchemeTime :call SetColorSchemeTime()
+nnoremap <S-F7> :SetColorSchemeTime()<CR>
+
+"colorscheme vividchalk
+"colorscheme zenburn
+"set background=dark
+"colorscheme solarized
+
+:call SetColorSchemeTime()
+
