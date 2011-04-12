@@ -18,8 +18,14 @@ ln -s $CURDIR ~/.vim
 ln -s $CURDIR/vimrc ~/.vimrc
 ln -s $CURDIR/gvimrc ~/.gvimrc
 
+# Necessary directories for various plugins
+mkdir $CURDIR/tmp
+mkdir $CURDIR/sessions
+
+# setup bundles
 git submodule update --init
 
+# setup external programs
 ZSH=`which zsh`
 CTAGS=`which ctags`
 CSCOPE=`which cscope`
@@ -35,6 +41,7 @@ if has("cscope")
 endif
 EOL
 
+# command-t needs to be built
 cd ~/.vim/bundles/command-t/ruby/command-t/
 ruby extconf.rb
 make
