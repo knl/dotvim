@@ -79,3 +79,6 @@
 [submodule "bundles/space"]
 	path = bundles/space
 	url = git://github.com/spiiph/vim-space.git
+[submodule "bundles/netrw"]
+	path = bundles/netrw
+	url = git://github.com/vim-scripts/netrw.vim.git
