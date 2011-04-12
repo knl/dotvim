@@ -173,6 +173,9 @@ runtime plugin/matchit.vim
 map <S-Insert> <MiddleMouse>
 map! <S-Insert> <MiddleMouse>
 
+nmap <unique> <silent> <Leader><Leader> :CommandT<CR>
+let g:CommandTMatchWindowAtTop=1
+
 " Ack
 nnoremap <leader>a :Ack
 
