@@ -52,3 +52,6 @@
 [submodule "bundles/minibufexpl"]
 	path = bundles/minibufexpl
 	url = https://github.com/fholgado/minibufexpl.vim.git
+[submodule "bundles/cscope"]
+	path = bundles/cscope
+	url = git://github.com/vim-scripts/cscope_macros.vim.git
