@@ -82,3 +82,6 @@
 [submodule "bundles/netrw"]
 	path = bundles/netrw
 	url = git://github.com/vim-scripts/netrw.vim.git
+[submodule "bundles/autocomplpop"]
+	path = bundles/autocomplpop
+	url = git://github.com/vim-scripts/AutoComplPop.git
