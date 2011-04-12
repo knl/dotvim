@@ -437,9 +437,9 @@ function! SetColorSchemeTime()
     let i = 0
   endif
   if i == 0
-  	  call LightColorScheme()
-  else
   	  call DarkColorScheme()
+  else
+  	  call LightColorScheme()
   endif
 endfunction
 
