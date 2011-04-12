@@ -58,3 +58,6 @@
 [submodule "bundles/bufexplorer"]
 	path = bundles/bufexplorer
 	url = git://github.com/vim-scripts/bufexplorer.zip.git
+[submodule "bundles/endwise"]
+	path = bundles/endwise
+	url = git://github.com/tpope/vim-endwise.git
