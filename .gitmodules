@@ -67,3 +67,6 @@
 [submodule "bundles/syntastic"]
 	path = bundles/syntastic
 	url = git://github.com/scrooloose/syntastic.git
+[submodule "bundles/surround"]
+	path = bundles/surround
+	url = git://github.com/tpope/vim-surround.git
