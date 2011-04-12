@@ -76,3 +76,6 @@
 [submodule "bundles/repeat"]
 	path = bundles/repeat
 	url = https://github.com/tpope/vim-repeat
+[submodule "bundles/space"]
+	path = bundles/space
+	url = git://github.com/spiiph/vim-space.git
