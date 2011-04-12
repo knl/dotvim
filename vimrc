@@ -437,16 +437,29 @@ function! SetColorSchemeTime()
     let i = 0
   endif
   if i == 0
-  	  let g:solarized_style="dark"
-  	  set background=dark
+  	  call LightColorScheme()
   else
-  	  let g:solarized_style="light"
-  	  set background=light
+  	  call DarkColorScheme()
   endif
-  colorscheme solarized
-  redraw
 endfunction
+
+function! LightColorScheme()
+	let g:solarized_style="light"
+	set background=light
+	exec "colo" g:colo_name 
+	redraw
+endfunction
+
+function! DarkColorScheme()
+	let g:solarized_style="dark"
+	set background=dark
+	exec "colo" g:colo_name 
+	redraw
+endfunction
+
 command -bar -nargs=0 SetColorSchemeTime :call SetColorSchemeTime()
+command -bar -nargs=0 LightColorScheme :call LightColorScheme()
+command -bar -nargs=0 DarkColorScheme :call DarkColorScheme()
 nnoremap <S-F7> :SetColorSchemeTime()<CR>
 
 "colorscheme vividchalk
@@ -454,5 +467,6 @@ nnoremap <S-F7> :SetColorSchemeTime()<CR>
 "set background=dark
 "colorscheme solarized
 
+let g:colo_name="solarized"
 :call SetColorSchemeTime()
 
