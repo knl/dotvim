@@ -85,3 +85,6 @@
 [submodule "bundles/autocomplpop"]
 	path = bundles/autocomplpop
 	url = git://github.com/vim-scripts/AutoComplPop.git
+[submodule "vim-latex-plugin"]
+	path = vim-latex-plugin
+	url = git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex
