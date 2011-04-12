@@ -61,3 +61,9 @@
 [submodule "bundles/endwise"]
 	path = bundles/endwise
 	url = git://github.com/tpope/vim-endwise.git
+[submodule "bundles/latex-suite"]
+	path = bundles/latex-suite
+	url = git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex
+[submodule "bundles/syntastic"]
+	path = bundles/syntastic
+	url = git://github.com/scrooloose/syntastic.git
