@@ -41,6 +41,8 @@ set laststatus=2
 
 "set number
 
+set t_Co=256
+
 set encoding=utf-8
 set textwidth=0         " Do not wrap words (insert)
 set nowrap              " Do not wrap words (view)
