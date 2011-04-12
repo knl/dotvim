@@ -49,3 +49,6 @@
 [submodule "bundles/yankring"]
 	path = bundles/yankring
 	url = git://github.com/ornicar/vim-yankring.git
+[submodule "bundles/minibufexpl"]
+	path = bundles/minibufexpl
+	url = https://github.com/fholgado/minibufexpl.vim.git
