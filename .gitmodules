@@ -55,3 +55,6 @@
 [submodule "bundles/cscope"]
 	path = bundles/cscope
 	url = git://github.com/vim-scripts/cscope_macros.vim.git
+[submodule "bundles/bufexplorer"]
+	path = bundles/bufexplorer
+	url = git://github.com/vim-scripts/bufexplorer.zip.git
