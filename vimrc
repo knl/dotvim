@@ -32,6 +32,11 @@ if filereadable(expand("~/.vim_local"))
   source ~/.vim_local
 endif
 
+" Read the location of external programs used by the configuration
+if filereadable(expand("$HOME/.vim/external.vim"))
+	source $HOME/.vim/external.vim
+endif
+
 let VCSCommandEnableBufferSetup=1
 set statusline=%<%f\ %{VCSCommandGetStatusLine()}\ %{SyntasticStatuslineFlag()}%h%m%r%=%-14.(%l,%c%V%)\ %P
 set laststatus=2
@@ -96,8 +101,6 @@ endif
 " prevent vim from adding that stupid empty line at the end of every file
 set noeol
 set binary
-
-set shell=/usr/local/bin/zsh
 
 "Ignore these files when completing names and in Explorer
 set wildignore=.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif
@@ -295,10 +298,8 @@ endif " has("autocmd")
 " let Tlist_Use_Right_Window = 1
 map <leader>T :TlistOpen<cr>
 
-let g:showfuncctagsbin = "/usr/local/bin/ctags"
 
 if has("cscope")
-	set csprg=/usr/local/bin/cscope
 	set cst
 
 	map <C-_> :cstag <C-R>=expand("<cword>")<CR><CR>
