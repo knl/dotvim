@@ -1,5 +1,7 @@
 #!/bin/bash
 
+CURDIR=`pwd`
+
 if [ -e ~/.vim ]; then
 	mv ~/.vim ~/.vim.old
 fi
@@ -12,9 +14,11 @@ if [ -e ~/.gvimrc ]; then
 	mv ~/.gvimrc ~/.gvimrc.old
 fi
 
-ln -s . ~/.vim
-ln -s vimrc ~/.vimrc
-ln -s gvimrc ~/.gvimrc
+ln -s $CURDIR ~/.vim
+ln -s $CURDIR/vimrc ~/.vimrc
+ln -s $CURDIR/gvimrc ~/.gvimrc
+
+git submodule update --init
 
 ZSH=`which zsh`
 CTAGS=`which ctags`
@@ -31,7 +35,6 @@ if has("cscope")
 endif
 EOL
 
-CURDIR=`pwd`
 cd ~/.vim/bundles/command-t/ruby/command-t/
 ruby extconf.rb
 make
