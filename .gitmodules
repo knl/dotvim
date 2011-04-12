@@ -88,3 +88,6 @@
 [submodule "vim-latex-plugin"]
 	path = vim-latex-plugin
 	url = git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex
+[submodule "bundles/delimitMate"]
+	path = bundles/delimitMate
+	url = git://github.com/Raimondi/delimitMate.git
