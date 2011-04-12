@@ -38,7 +38,14 @@ if filereadable(expand("$HOME/.vim/external.vim"))
 endif
 
 let VCSCommandEnableBufferSetup=1
-set statusline=%<%f\ %{VCSCommandGetStatusLine()}\ %{SyntasticStatuslineFlag()}%h%m%r%=%-14.(%l,%c%V%)\ %P
+" Setting statusline properly
+set statusline=%<%f
+set statusline+=\ %{exists('loaded_VCSCommand')?VCSCommandGetStatusLine():''}
+if exists("*SyntasticStatuslineFlag")
+	set statusline+=\ %{SyntasticStatuslineFlag()}
+endif
+set statusline+=%h%m%r%=%-14.(%l,%c%V%)\ %P
+
 set laststatus=2
 "
 "set cuc
