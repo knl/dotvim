@@ -480,7 +480,7 @@ if (!has('gui_running'))
 	let g:solarized_termcolors=16
 endif
 let g:colo_name="solarized"
-:call SetColorSchemeTime()
+:call DarkColorScheme()
 
 " Allow local configuration to overcome global
 if filereadable(expand("~/.vim_local"))
