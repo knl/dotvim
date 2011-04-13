@@ -93,7 +93,7 @@ set shiftround		" use a multiple of sw for <
 
 "set formatoptions=qrn1
 
-if has("macunix") 
+if has("macunix")
 	"let s:name = system("uname")
 	"if s:name == "Darwin"
 		set relativenumber
@@ -156,7 +156,7 @@ map Q gq
 "Switch to current dir
 map <leader>cd :cd %:p:h<cr>
 
-" highlight trailing whitespace  
+" highlight trailing whitespace
 set listchars=tab:▷⋅,trail:·,eol:$
 nmap <silent> <leader>s :set nolist!<CR>
 
@@ -215,9 +215,9 @@ let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMinSize = 2
 
 let g:bufExplorerSortBy = "name"
-let g:miniBufExplMapWindowNavVim = 1 
-let g:miniBufExplMapWindowNavArrows = 1 
-let g:miniBufExplMapCTabSwitchBufs = 1 
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplMapWindowNavArrows = 1
+let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
 
 nmap <leader>S :SessionList<CR>
@@ -239,7 +239,7 @@ let g:Conque_TERM = 'xterm'
 nmap <Leader>sh :ConqueSplit bash<cr>
 
 " ,r to open vimshell window
-nmap <Leader>r :ConqueSplit 
+nmap <Leader>r :ConqueSplit
 " }
 
 " YankRing {
@@ -289,7 +289,7 @@ if has("autocmd")
 		autocmd FileType objc	     setlocal ts=4 sw=4 sts=4 ai  fdm=manual
 		autocmd FileType h	     setlocal ts=4 sw=4 sts=4 ai tw=0 fdm=manual
 		autocmd FileType c	     setlocal ts=4 sw=4 sts=4 cindent tw=0 cino= ai fdm=manual
-		autocmd FileType cpp   	     setlocal ts=4 sw=4 sts=4 cindent tw=0 cino= ai fdm=manual
+		autocmd FileType cpp	     setlocal ts=4 sw=4 sts=4 cindent tw=0 cino= ai fdm=manual
 	augroup END
 
 
@@ -433,23 +433,23 @@ function! SetColorSchemeTime()
     let i = 0
   endif
   if i == 0
-  	  call DarkColorScheme()
+	  call DarkColorScheme()
   else
-  	  call LightColorScheme()
+	  call LightColorScheme()
   endif
 endfunction
 
 function! LightColorScheme()
 	let g:solarized_style="light"
 	set background=light
-	exec "colo" g:colo_name 
+	exec "colo" g:colo_name
 	redraw
 endfunction
 
 function! DarkColorScheme()
 	let g:solarized_style="dark"
 	set background=dark
-	exec "colo" g:colo_name 
+	exec "colo" g:colo_name
 	redraw
 endfunction
 
