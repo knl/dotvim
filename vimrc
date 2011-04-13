@@ -28,10 +28,6 @@ set tags=tags;/
 " highlihgt the file name
 hi User1 term=bold,reverse cterm=bold ctermfg=4 ctermbg=2 gui=bold guifg=Blue guibg=#44aa00
 "set statusline=%<%1*%f%*\ %h%m%r%#warningmsg#%{SyntasticStatuslineFlag()}%*%=%-14.(%l,%c%V%)\ %P
-if filereadable(expand("~/.vim_local"))
-  source ~/.vim_local
-endif
-
 " Read the location of external programs used by the configuration
 if filereadable(expand("$HOME/.vim/external.vim"))
 	source $HOME/.vim/external.vim
@@ -470,3 +466,7 @@ nnoremap <S-F7> :SetColorSchemeTime()<CR>
 let g:colo_name="solarized"
 :call SetColorSchemeTime()
 
+" Allow local configuration to overcome global
+if filereadable(expand("~/.vim_local"))
+  source ~/.vim_local
+endif
