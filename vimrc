@@ -49,7 +49,7 @@ set laststatus=2
 
 "set number
 
-set t_Co=256
+"set t_Co=256
 
 set encoding=utf-8
 set textwidth=0         " Do not wrap words (insert)
@@ -463,6 +463,9 @@ nnoremap <S-F7> :SetColorSchemeTime()<CR>
 "set background=dark
 "colorscheme solarized
 
+if (!has('gui_running'))
+	let g:solarized_termcolors=16
+endif
 let g:colo_name="solarized"
 :call SetColorSchemeTime()
 
