@@ -453,6 +453,19 @@ function! DarkColorScheme()
 	redraw
 endfunction
 
+function! ToggleBackground()
+    if (g:solarized_style=="dark")
+		call LightColorScheme()
+	else
+		call DarkColorScheme()
+	endif
+endfunction
+
+command! Togbg call ToggleBackground()
+nnoremap <F5> :call ToggleBackground()<CR>
+inoremap <F5> <ESC>:call ToggleBackground()<CR>a
+vnoremap <F5> <ESC>:call ToggleBackground()<CR>
+
 command -bar -nargs=0 SetColorSchemeTime :call SetColorSchemeTime()
 command -bar -nargs=0 LightColorScheme :call LightColorScheme()
 command -bar -nargs=0 DarkColorScheme :call DarkColorScheme()
