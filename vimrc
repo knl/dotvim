@@ -479,8 +479,13 @@ nnoremap <S-F7> :SetColorSchemeTime()<CR>
 if (!has('gui_running'))
 	let g:solarized_termcolors=16
 endif
+
+" avoid calling functions to set :colo, since it flashes nasty
+set background=dark
+let g:solarized_style="dark"
 let g:colo_name="solarized"
-:call DarkColorScheme()
+colo solarized
+
 
 " Allow local configuration to overcome global
 if filereadable(expand("~/.vim_local"))
