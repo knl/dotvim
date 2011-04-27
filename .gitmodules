@@ -91,3 +91,6 @@
 [submodule "bundles/delimitMate"]
 	path = bundles/delimitMate
 	url = git://github.com/Raimondi/delimitMate.git
+[submodule "bundles/gundo"]
+	path = bundles/gundo
+	url = git://github.com/sjl/gundo.vim.git
