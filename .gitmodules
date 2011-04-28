@@ -94,3 +94,6 @@
 [submodule "bundles/gundo"]
 	path = bundles/gundo
 	url = git://github.com/sjl/gundo.vim.git
+[submodule "bundles/gitv"]
+	path = bundles/gitv
+	url = git://github.com/gregsexton/gitv.git
