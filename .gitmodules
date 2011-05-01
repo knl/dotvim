@@ -97,3 +97,6 @@
 [submodule "bundles/gitv"]
 	path = bundles/gitv
 	url = git://github.com/gregsexton/gitv.git
+[submodule "bundles/vim-emacscommandline"]
+	path = bundles/vim-emacscommandline
+	url = https://github.com/houtsnip/vim-emacscommandline
