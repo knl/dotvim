@@ -1,21 +1,18 @@
 This is a complete Vim configuration that I'm using everywhere
 
-Plugins that are available form a git repository were added with
-[Braid](http://github.com/evilchelu/braid) for easy upgrading.
-
 *Some* help tips are provided for *some* of the plugins. please check out the plugin's docs for more info.
 
 ##### Installation
 
 From your homedirectory (on Linux/Mac OSX):
 
-* `git clone git://github.com/astrails/dotvim.git`
-* `ln -sfn dotvim .vim`
-* `ln -sfn dotvim/vimrc .vimrc`
+* `git clone git://github.com/knl/dotvim.git`
+* `sh ./setup.sh`
+* the previous command will nicely set up links to appropriate files, and fetch all submodules
 * you create and edit ~/.vim\_local if you want to have your some
   local/personal settings you don't want to commit into the repo
 
-Note: if you alrady have `~/.vim` `~/.vimrc` REMOVE THEM (you might want to backup them ifirst :)
+Note: if you already have `~/.vim` `~/.vimrc` REMOVE THEM (you might want to backup them first :)
 
 #### General configuration
 
@@ -46,20 +43,18 @@ Check out the 'vimrc' file for more...
     * `,cu` - Uncomment
     * check docs for more
 
-*   [PeepOpen](http://peepcode.com/products/peepopen)
+*   command-t 1.0 ([vim.org](http://www.vim.org/scripts/script.php?script_id=3025) [git](git://git.wincent.com/command-t.git))
 
-    * `,,` - open PeepOpen popup
+    TextMate Command-T like file finder for vim
 
-	Dont forget to set MacVim's general setting:
-	Apple+, to open macvim pref pane => General:
-	change "Open files from applications" to "in the current window / with a
-	tab for each file"
-
-*   fuzzyfinder 3.5 ([vim.org](http://www.vim.org/scripts/script.php?script_id=1984))
-
-    buffer/file/command/tag/etc explorer with fuzzy matching
-
-    * `,f` - FufFile - fuzzy find file
+    * `,,` - find file
+    * while at the finder prompt:
+      * `Ctrl-Enter` - open file in a new split
+      * `Ctrl-s` - open file in a new split
+      * `Ctrl-v` - open file in a new vertical split
+      * `Ctrl-U` - clear current partial path
+      * `Esc` - cancel
+      * `Ctrl-c` - cancel
 
 *   autocomplpop 2.14.1 ([vim.org](http://www.vim.org/scripts/script.php?script_id=1879))
 
@@ -97,7 +92,7 @@ Check out the 'vimrc' file for more...
          Bring up the output of git-status in the preview
          window.  Press `-` to stage or unstage the file on the
          cursor line.  Press `p` to do so on a per hunk basis
-         (--patch).  Press `C` to invoke |:Gcommit|.
+         (--patch).  Press `C` to invoke :Gcommit.
 
     *    `:Gcommit [args]`
 
@@ -105,7 +100,7 @@ Check out the 'vimrc' file for more...
 
     *    `:Ggrep [args]`
 
-         |:grep| with git-grep as 'grepprg'.
+         :grep with git-grep as 'grepprg'.
 
     *   `:Gblame`
 
@@ -115,20 +110,6 @@ Check out the 'vimrc' file for more...
 
     Much more in the plugin's doc
 
-*   rails ([vim.org](http://www.vim.org/scripts/script.php?script_id=1567)) ([github](http://github.com/tpope/vim-rails))
-
-    Ruby on Rails: easy file navigation, enhanced syntax highlighting, and more
-
-    * `:AV` - open "alternate" file in a new vertical split
-    * `:AS` - open "alternate" file in a new horizontal split
-    * `:RV` - open "related" file in a new vertical split
-    * `:RS` - open "related" file in a new horizontal split
-    * `:Rextract` - extract partial (select text for extraction first)
-    * `:Rinvert` - takes a self.up migration and writes a self.down.
-    * `gf` - remapped to take context into account. recognizes models
-      associations, partials etc.
-    * `:h rails` for more info ;)
-
 *   syntastic ([github](http://github.com/scrooloose/syntastic))
 
     syntax checking plugin
@@ -136,14 +117,6 @@ Check out the 'vimrc' file for more...
     it will display the number of syntax errors in the current file in the vim's status line.
 
     use `:Errors` to display a window detailing the errors
-
-*   snipmate ([vim.org](http://www.vim.org/scripts/script.php?script_id=2540)) ([github](http://github.com/msanders/snipmate.vim))
-
-    TextMate-style snippets for Vim
-
-    write a snipped text and press TAB to expand it.
-
-    To see the list of available snippets type `Ctrl-R <Tab>` in the insert mode
 
 *   space ([github](http://github.com/scrooloose/vim-space))
 
@@ -181,34 +154,24 @@ Check out the 'vimrc' file for more...
     This one is much better then vimsh that I was using before
 
     `,sh` - start a vimsh window
-    `,r`  - opens vim prompt for command to run
-
-*   drillctg 1.1.3 ([vim.org](http://www.vim.org/scripts/script.php?script_id=2013))
-
-    Allows fast drill-down search across the pathnames in your ctags file
-
-    `:Drill` to open drill window
-
-*   vividchalk ([vim.org](http://www.vim.org/scripts/script.php?script_id=1891)) ([github](http://github.com/vitaly/vim-vividchalk))
-
-    A colorscheme strangely reminiscent of Vibrant Ink for a certain OS X editor
+    `,R`  - opens vim prompt for command to run
 
 *   sessionman ([vim.org](http://www.vim.org/scripts/script.php?script_id=2010))
 
     work with Vim sessions by keeping them in the dedicated location and by providing commands to list, open, and save sessions.
 
-	* `,S`, `:SessionList` - list sessions
-	* `,SS`, `:SessionSave` - save session
-	* `,SA`, `:SessionSaveAs` - save new session
-	* check out "Sessions" submenu under "File"
+    * `,S`, `:SessionList` - list sessions
+    * `,SS`, `:SessionSave` - save session
+    * `,SA`, `:SessionSaveAs` - save new session
+    * check out "Sessions" submenu under "File"
 
 *   ack.vim ([vim.org](http://www.vim.org/scripts/script.php?script_id=2572)) ([github](http://github.com/mileszs/ack.vim))
 
     This plugin is a front for the Perl module App::Ack. Ack can be used as a replacement for 99% of the uses of grep.
 
-	* `:Ack [options] {pattern} [{directory}]` - grep for the pattern in side directory and open result in a QuickFix window
-	* `:Ack --ruby ...` - search only ruby files.
-	* `:h Ack` - more help about Ack
+    * `:Ack [options] {pattern} [{directory}]` - grep for the pattern in side directory and open result in a QuickFix window
+    * `:Ack --ruby ...` - search only ruby files.
+    * `:h Ack` - more help about Ack
 
 #### "Support" and minor plugins
 
@@ -231,13 +194,9 @@ Check out the 'vimrc' file for more...
 
     auto-completion for quotes, parens, brackets, etc. in insert mode.
 
-*   kwdbi 1.1 ([vim.org](http://www.vim.org/scripts/script.php?script_id=2103))
+*   kwbdi 1.1 ([vim.org](http://www.vim.org/scripts/script.php?script_id=2103))
 
     Keep Window on Buffer Delete - Improved
-
-*   pastie ([vim.org](http://www.vim.org/scripts/script.php?script_id=1624)) ([github](http://github.com/tpope/vim-pastie))
-
-    integration with http://pastie.org
 
 *   repeat ([vim.org](http://www.vim.org/scripts/script.php?script_id=2136)) ([github](http://github.com/tpope/vim-repeat))
 
@@ -261,29 +220,13 @@ Check out the 'vimrc' file for more...
 
     [rcov](http://eigenclass.org/hiki.rb?rcov) support (extracted from rcov-0.8.1.2.0 ruby gem)
 
-*   puppet ([vim.org](http://www.vim.org/scripts/script.php?script_id=2094))
-
-    Syntax Highlighting for Puppet
-
 *   json 0.4 ([vim.org](http://www.vim.org/scripts/script.php?script_id=1945))
 
     synntax highlighting file for JSON
 
-*   cucumber ([github](http://github.com/tpope/vim-cucumber))
-
-    syntax, indent, etc. for [Cucumber](http://github.com/aslakhellesoy/cucumber)
-
-*   haml ([vim.org](http://www.vim.org/scripts/script.php?script_id=1433)) ([github](http://github.com/tpope/vim-haml))
-
-    [HAML](http://haml-lang.com/) syntax etc.
-
 *   markdown ([github](http://github.com/plasticboy/vim-markdown))
 
     syntax for [Markdown](http://daringfireball.net/projects/markdown/)
-
-*   coffe-script ([github](http://github.com/kchmck/vim-coffee-script))
-
-	syntax for [Coffee script](http://jashkenas.github.com/coffee-script/)
 
 ### Misc
 
@@ -305,4 +248,7 @@ randomly chosen bits of vim goodness.
 * `ci` change inside delimiters
 * `di` delete inside delimiters
 * `@@` execute last macro
-
+* `"xyy` copy line into `x` register (replace x with any other)
+* `<C-R>x` while in insert mote will paste content of register x (replace x with any other)
+* `"xp` paste from register x
+* `:reg` Display the contents of all numbered and named registers.
