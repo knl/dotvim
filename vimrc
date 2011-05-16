@@ -180,7 +180,7 @@ map <S-Insert> <MiddleMouse>
 map! <S-Insert> <MiddleMouse>
 
 " CommandT
-nmap <silent> <Leader><Leader> :cal <SID>LazyStart("command-t", g:mapleader)<cr>
+nmap <silent> <leader><leader> :cal <SID>LazyStart("command-t", g:mapleader)<cr>
 let g:CommandTMatchWindowAtTop=1
 
 " Ack
@@ -229,24 +229,24 @@ nmap <leader>SA :SessionSaveAs<CR>
 "let g:miniBufExplVSplit = 25
 "let g:miniBufExplorerMoreThanOne = 100
 "let g:miniBufExplUseSingleClick = 1
-nmap <Leader>b :MiniBufExplorer<cr>
+nmap <leader>b :MiniBufExplorer<cr>
 " }
 
 " bufexplorer
 " do lazy load	
-nm <silent> <leader>be :cal <SID>LazyStart("bufexplorer", "be")<cr>
-nm <silent> <leader>bs :cal <SID>LazyStart("bufexplorer", "bs")<cr>
-nm <silent> <leader>bv :cal <SID>LazyStart("bufexplorer", "bv")<cr>
+nmap <silent> <leader>be :cal <SID>LazyStart("bufexplorer", "be")<cr>
+nmap <silent> <leader>bs :cal <SID>LazyStart("bufexplorer", "bs")<cr>
+nmap <silent> <leader>bv :cal <SID>LazyStart("bufexplorer", "bv")<cr>
 
 " ConqueTerm {
 let g:Conque_Read_Timeout = 50 " timeout for waiting for command output.
 let g:Conque_TERM = 'xterm'
 
 " ,sh to open vimshell window
-nmap <Leader>sh :ConqueSplit bash<cr>
+nmap <leader>sh :ConqueSplit bash<cr>
 
 " ,r to open vimshell window
-nmap <Leader>r :ConqueSplit
+nmap <leader>r :ConqueSplit
 " }
 
 " YankRing {
@@ -500,17 +500,17 @@ func! s:LazyStart(plugin, mapping)
     let lazy_dir = expand('~/.vim/lazy/')
     let rtp_dir = lazy_dir.a:plugin
     if match(split(&rtp,','),rtp_dir)<0
-        exe 'se rtp+='.rtp_dir
+        execute 'se rtp+='.rtp_dir
     endif
     let plug_dir = rtp_dir.'/plugin/'
 
     if a:plugin == 'bufexplorer'
-        nun <leader>be
-        nun <leader>bs
-        nun <leader>bv
+        nunmap <leader>be
+        nunmap <leader>bs
+        nunmap <leader>bv
     elseif a:plugin == 'command-t'
-    	nun <Leader><Leader>
-		nmap <unique> <silent> <Leader><Leader> :CommandT<CR>
+    	nunmap <leader><leader>
+		nmap <unique> <silent> <leader><leader> :CommandT<CR>
     endif
     execute 'so '.plug_dir.a:plugin.'.vim'
 	execute "normal " . g:mapleader . a:mapping
