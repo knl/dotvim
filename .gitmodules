@@ -103,3 +103,6 @@
 [submodule "bundles/tagbar"]
 	path = bundles/tagbar
 	url = git://github.com/majutsushi/tagbar
+[submodule "lazy/bufexplorer"]
+	path = lazy/bufexplorer
+	url = git://github.com/vim-scripts/bufexplorer.zip.git
