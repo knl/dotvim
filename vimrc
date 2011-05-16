@@ -231,6 +231,12 @@ nmap <leader>SA :SessionSaveAs<CR>
 nmap <Leader>b :MiniBufExplorer<cr>
 " }
 
+" bufexplorer
+" do lazy load	
+nm <silent> <leader>be :cal <SID>LazyStart("bufexplorer", "be")<cr>
+nm <silent> <leader>bs :cal <SID>LazyStart("bufexplorer", "bs")<cr>
+nm <silent> <leader>bv :cal <SID>LazyStart("bufexplorer", "bv")<cr>
+
 " ConqueTerm {
 let g:Conque_Read_Timeout = 50 " timeout for waiting for command output.
 let g:Conque_TERM = 'xterm'
@@ -486,6 +492,25 @@ let g:solarized_style="dark"
 let g:colo_name="solarized"
 colo solarized
 
+" function for lazy loading.
+" Should be modified for all possible lazy plugins
+" by adding correct mappings
+func! s:LazyStart(plugin, mapping)
+    let lazy_dir = expand('~/.vim/lazy/')
+    let rtp_dir = lazy_dir.a:plugin
+    if match(split(&rtp,','),rtp_dir)<0
+        exe 'se rtp+='.rtp_dir
+    endif
+    let plug_dir = rtp_dir.'/plugin/'
+
+    if a:plugin == 'bufexplorer'
+        nun <leader>be
+        nun <leader>bs
+        nun <leader>bv
+        execute 'so '.plug_dir.a:plugin.'.vim'
+    endif
+	execute "normal " . g:mapleader . a:mapping
+endfunc
 
 " Allow local configuration to overcome global
 if filereadable(expand("~/.vim_local"))
