@@ -179,7 +179,8 @@ runtime plugin/matchit.vim
 map <S-Insert> <MiddleMouse>
 map! <S-Insert> <MiddleMouse>
 
-nmap <unique> <silent> <Leader><Leader> :CommandT<CR>
+" CommandT
+nmap <silent> <Leader><Leader> :cal <SID>LazyStart("command-t", g:mapleader)<cr>
 let g:CommandTMatchWindowAtTop=1
 
 " Ack
@@ -507,8 +508,11 @@ func! s:LazyStart(plugin, mapping)
         nun <leader>be
         nun <leader>bs
         nun <leader>bv
-        execute 'so '.plug_dir.a:plugin.'.vim'
+    elseif a:plugin == 'command-t'
+    	nun <Leader><Leader>
+		nmap <unique> <silent> <Leader><Leader> :CommandT<CR>
     endif
+    execute 'so '.plug_dir.a:plugin.'.vim'
 	execute "normal " . g:mapleader . a:mapping
 endfunc
 

@@ -106,3 +106,6 @@
 [submodule "lazy/bufexplorer"]
 	path = lazy/bufexplorer
 	url = git://github.com/vim-scripts/bufexplorer.zip.git
+[submodule "lazy/command-t"]
+	path = lazy/command-t
+	url = git://github.com/wincent/Command-T.git

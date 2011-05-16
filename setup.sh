@@ -42,7 +42,7 @@ endif
 EOL
 
 # command-t needs to be built
-cd ~/.vim/bundles/command-t/ruby/command-t/
+cd ~/.vim/lazy/command-t/ruby/command-t/
 ruby extconf.rb
 make
 
