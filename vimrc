@@ -113,9 +113,9 @@ hi SpellErrors guibg=red guifg=black ctermbg=red ctermfg=black
 set backupdir=$HOME/.vim/backup,.
 set directory=$HOME/.vim/tmp,.
 
-if has("mouse")
-  set mouse=a
-endif
+"if has("mouse")
+  "set mouse=a
+"endif
 
 " enable showmmarks
 let g:showmarks_enable = 1
