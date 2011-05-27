@@ -205,6 +205,15 @@ vmap <leader>/ :call NERDComment(0, "invert")<cr>
 let g:NERD_shut_up=1
 " }
 
+" Supertab {{{
+let g:SuperTabNoCompleteAfter = ['\s','\d','^']
+" this doesn't work for some reason
+let g:SuperTabMappingTabLiteral = '<c-tab>'
+let g:SuperTabLongestHighlight = 1
+let g:SuperTabMappingForward = '<s-tab>'
+let g:SuperTabMappingBackward = '<tab>'
+" }}}
+
 " miniBufExplorer {
 let g:miniBufExplModSelTarget = 1
 let g:miniBufExplorerMoreThanOne = 2
