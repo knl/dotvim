@@ -109,3 +109,6 @@
 [submodule "lazy/command-t"]
 	path = lazy/command-t
 	url = git://github.com/wincent/Command-T.git
+[submodule "bundles/detectindent"]
+	path = bundles/detectindent
+	url = git://github.com/ciaranm/detectindent.git
