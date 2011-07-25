@@ -100,6 +100,9 @@ set softtabstop=4
 set expandtab " expand tabs
 set shiftround		" use a multiple of sw for <
 
+" Tabs
+set guitablabel=%N/\ %t\ %M
+
 "set formatoptions=qrn1
 
 if has("macunix")
@@ -190,6 +193,7 @@ map! <S-Insert> <MiddleMouse>
 
 " CommandT
 nmap <silent> <leader><leader> :cal <SID>LazyStart("command-t", g:mapleader)<cr>
+nmap <unique> <silent> <Leader><Leader><Leader> :CommandTFlush<CR>:CommandT<CR>
 let g:CommandTMatchWindowAtTop=1
 
 " Ack
@@ -267,6 +271,10 @@ nmap <leader>sh :ConqueSplit bash<cr>
 nmap <leader>r :ConqueSplit
 " }}}
 
+" A-CPP
+let g:alternateRelativeFiles = 1
+let g:alternateNoDefaultAlternate = 1
+
 " YankRing {
 " map ,y to show the yankring
 nmap <leader>y :YRShow<cr>
@@ -282,6 +290,8 @@ nmap <leader>e :e **/
 " ,f to fast finding files using fuzzy finder.
 nmap <leader>f :FufFile **/<CR>
 
+" for mistyping :w as :W
+command! W :w
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
@@ -349,7 +359,7 @@ let g:Tex_CompileRule_dvi = 'latex --interaction=nonstopmode $*'
 let g:Tex_CompileRule_ps = 'dvips -Pwww -o $*.ps $*.dvi'
 let g:Tex_CompileRule_pspdf = 'ps2pdf $*.ps'
 let g:Tex_CompileRule_dvipdf = 'dvipdfm $*.dvi'
-let g:Tex_CompileRule_pdf = 'pdflatex $*'
+let g:Tex_CompileRule_pdf = 'pdflatex -enable-write18 --interaction=nonstopmode $*'
 
 let g:Tex_ViewRule_dvi = 'texniscope'
 let g:Tex_ViewRule_ps = 'Preview'
@@ -509,6 +519,8 @@ endif
 set background=dark
 let g:solarized_style="dark"
 let g:colo_name="solarized"
+let g:solarized_hitrail=1
+let g:solarized_menu=0
 colo solarized
 
 " function for lazy loading.
