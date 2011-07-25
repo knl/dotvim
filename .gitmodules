@@ -112,3 +112,6 @@
 [submodule "bundles/detectindent"]
 	path = bundles/detectindent
 	url = git://github.com/ciaranm/detectindent.git
+[submodule "bundles/asynccommand"]
+	path = bundles/asynccommand
+	url = git://github.com/pydave/AsyncCommand.git
