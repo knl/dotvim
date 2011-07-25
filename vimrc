@@ -1,3 +1,4 @@
+" vim:fdm=manual
 set nocompatible
 
 runtime! autoload/pathogen.vim
@@ -9,12 +10,7 @@ end
 syntax on
 filetype plugin indent on
 
-"set completeopt=menuone,preview,longest
-set completeopt=menuone,preview
 "inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
-" Omni completion settings
-set ofu=syntaxcomplete#Complete
 
 let bash_is_sh=1
 set cinoptions=:0,(s,u0,U1,g0,t0
@@ -70,7 +66,6 @@ set foldcolumn=0        " columns for folding
 set foldmethod=indent
 set foldlevel=9
 set history=1000
-set wildmenu
 set ruler
 set visualbell
 set autoread            " automatically read feil that has been changed on disk and doesn't have changes in vim
@@ -83,6 +78,20 @@ set copyindent		" copy indent from previous line on autoindent
 set preserveindent  " preserve indentination
 
 set backspace=indent,eol,start		" allow backspacing over everything in insert mode
+
+" command-mode completion
+set wildmenu
+set wildignore=*.o,*.obj,*.pyc,*.swc,*.DS_STORE,*.bkp
+set wildmode=list:longest
+
+" insert-mode completion
+set complete=.,w,b,u,U,t,i,d
+
+" Omni completion settings
+set infercase
+set ofu=syntaxcomplete#Complete
+"set completeopt=menuone,preview,longest
+set completeopt=menuone,preview
 
 " tabs and spaces
 set tabstop=4
@@ -192,7 +201,7 @@ nnoremap <leader>v V`]
 " Ctrol-E to switch between 2 last buffers
 nmap <C-E> :b#<CR>
 
-" NERDCommenter {
+" NERDCommenter {{{
 " Ctrl-P to Display the file browser tree
 nmap <C-P> :NERDTreeToggle<CR>
 " ,p to show current file in the tree
@@ -203,7 +212,7 @@ nmap <leader>/ :call NERDComment(0, "invert")<cr>
 vmap <leader>/ :call NERDComment(0, "invert")<cr>
 
 let g:NERD_shut_up=1
-" }
+" }}}
 
 " Supertab {{{
 let g:SuperTabNoCompleteAfter = ['\s','\d','^']
@@ -214,7 +223,7 @@ let g:SuperTabMappingForward = '<s-tab>'
 let g:SuperTabMappingBackward = '<tab>'
 " }}}
 
-" miniBufExplorer {
+" miniBufExplorer {{{
 let g:miniBufExplModSelTarget = 1
 let g:miniBufExplorerMoreThanOne = 2
 let g:miniBufExplModSelTarget = 0
@@ -239,7 +248,7 @@ nmap <leader>SA :SessionSaveAs<CR>
 "let g:miniBufExplorerMoreThanOne = 100
 "let g:miniBufExplUseSingleClick = 1
 nmap <leader>b :MiniBufExplorer<cr>
-" }
+" }}}
 
 " bufexplorer
 " do lazy load	
@@ -247,7 +256,7 @@ nmap <silent> <leader>be :cal <SID>LazyStart("bufexplorer", "be")<cr>
 nmap <silent> <leader>bs :cal <SID>LazyStart("bufexplorer", "bs")<cr>
 nmap <silent> <leader>bv :cal <SID>LazyStart("bufexplorer", "bv")<cr>
 
-" ConqueTerm {
+" ConqueTerm {{{
 let g:Conque_Read_Timeout = 50 " timeout for waiting for command output.
 let g:Conque_TERM = 'xterm'
 
@@ -256,7 +265,7 @@ nmap <leader>sh :ConqueSplit bash<cr>
 
 " ,r to open vimshell window
 nmap <leader>r :ConqueSplit
-" }
+" }}}
 
 " YankRing {
 " map ,y to show the yankring
