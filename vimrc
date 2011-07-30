@@ -81,7 +81,8 @@ set backspace=indent,eol,start		" allow backspacing over everything in insert mo
 
 " command-mode completion
 set wildmenu
-set wildignore=*.o,*.obj,*.pyc,*.swc,*.DS_STORE,*.bkp
+"Ignore these files when completing names and in Explorer
+set wildignore=.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,*.obj,*.pyc,*.swc,*.DS_STORE,*.bkp,*.aux
 set wildmode=list:longest
 
 " insert-mode completion
@@ -116,9 +117,6 @@ endif
 " prevent vim from adding that stupid empty line at the end of every file
 set noeol
 set binary
-
-"Ignore these files when completing names and in Explorer
-set wildignore=.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif
 
 hi SpellErrors guibg=red guifg=black ctermbg=red ctermfg=black
 
