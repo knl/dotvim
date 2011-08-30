@@ -97,6 +97,7 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab " expand tabs
 set shiftround		" use a multiple of sw for <
+set smarttab
 
 " Tabs
 set guitablabel=%N/\ %t\ %M
