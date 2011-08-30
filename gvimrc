@@ -15,3 +15,6 @@ map! <S-Insert> <MiddleMouse>
 
 au WinEnter * setlocal relativenumber
 au WinLeave * setlocal norelativenumber
+
+let g:solarized_bold=0
+let g:solarized_italic=0
