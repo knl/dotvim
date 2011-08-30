@@ -168,6 +168,9 @@ map <leader>cd :cd %:p:h<cr>
 set listchars=tab:▷⋅,trail:·,eol:$
 nmap <silent> <leader>s :set nolist!<CR>
 
+" when deleting single chars, don't polute yank history
+noremap x "_x
+"
 " Remove trailing whitespace
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
