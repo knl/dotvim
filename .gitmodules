@@ -115,3 +115,6 @@
 [submodule "bundles/asynccommand"]
 	path = bundles/asynccommand
 	url = git://github.com/pydave/AsyncCommand.git
+[submodule "bundles/easymotion"]
+	path = bundles/easymotion
+	url = git://github.com/Lokaltog/vim-easymotion.git
