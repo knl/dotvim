@@ -97,6 +97,15 @@ set wildignore+=*.DS_Store?                      " OSX bullshit
 set wildignore+=*.bkp
 " }}}
 
+" Make Vim able to edit crontab files again.
+set backupskip=/tmp/*,/private/tmp/*" 
+
+" Save when losing focus
+au FocusLost * :wa
+
+" Resize splits when the window is resized
+au VimResized * exe "normal! \<c-w>="
+
 " insert-mode completion
 set complete=.,w,b,u,U,t,i,d
 
@@ -113,6 +122,7 @@ set softtabstop=4
 set expandtab " expand tabs
 set shiftround		" use a multiple of sw for <
 set smarttab
+set colorcolumn=+1
 " }}}
 
 " Tabs
@@ -198,7 +208,7 @@ map <F2> :%s/\s*$//g<cr>:noh<cr>''
 nnoremap / /\v
 vnoremap / /\v
 " remove highlight on matched
-nnoremap <leader><space> :silent noh<cr>
+noremap <leader><space> :noh<cr>:call clearmatches()<cr>
 
 " extended '%' mapping for if/then/else/end etc
 runtime plugin/matchit.vim
