@@ -55,11 +55,13 @@ set ignorecase          " Do case insensitive matching
 set smartcase           " do not ignore if search pattern has CAPS
 set incsearch           " Incremental search
 set gdefault			" Turn on global replace (//g)
-"set autowriteall        " Automatically save before commands like :next and :make
 set hlsearch            " Highlight search match
 set hidden              " enable multiple modified buffers
 set nobackup            " do not write backup files
-set autoread		" Set to auto read when a file is changed from the outside
+set notimeout
+set nottimeout
+set autoread			" Set to auto read when a file is changed from the outside
+set autowrite 			" write on any :next, :make and such
 "set noswapfile          " do not write .swp files
 set foldcolumn=0        " columns for folding
 set foldmethod=indent
