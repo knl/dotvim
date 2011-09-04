@@ -1,6 +1,6 @@
-" vim:fdm=manual
 set nocompatible
 
+" vim:fdm=marker:
 call pathogen#infect('bundles')
 "call pathogen#helptags()
 
@@ -27,7 +27,8 @@ if filereadable(expand("$HOME/.vim/external.vim"))
 endif
 
 let VCSCommandEnableBufferSetup=1
-" Setting statusline properly
+
+" Setting statusline properly {{{
 set statusline=%<%f
 set statusline+=\ %{exists('loaded_VCSCommand')?VCSCommandGetStatusLine():''}
 if exists("*SyntasticStatuslineFlag")
@@ -36,7 +37,8 @@ endif
 set statusline+=%h%m%r%=%-14.(%l,%c%V%)\ %P
 
 set laststatus=2
-"
+" }}}
+
 "set cuc
 "set cul
 
@@ -91,13 +93,14 @@ set ofu=syntaxcomplete#Complete
 "set completeopt=menuone,preview,longest
 set completeopt=menuone,preview
 
-" tabs and spaces
+" Tabs and Spaces {{{
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab " expand tabs
 set shiftround		" use a multiple of sw for <
 set smarttab
+" }}}
 
 " Tabs
 set guitablabel=%N/\ %t\ %M
@@ -125,12 +128,13 @@ set directory=$HOME/.vim/tmp,.
   "set mouse=a
 "endif
 
-" enable showmmarks
+" enable showmmarks {{{
 let g:showmarks_enable = 1
 hi! link ShowMarksHLl LineNr
 hi! link ShowMarksHLu LineNr
 hi! link ShowMarksHLo LineNr
 hi! link ShowMarksHLm LineNr
+" }}}
 
 " Make
 :command -nargs=* Make make <args> | cwindow 3
@@ -190,10 +194,12 @@ runtime plugin/matchit.vim
 map <S-Insert> <MiddleMouse>
 map! <S-Insert> <MiddleMouse>
 
-" CommandT
+" do lazy load
+" CommandT {{{
 nmap <silent> <leader><leader> :cal <SID>LazyStart("command-t", g:mapleader)<cr>
 nmap <unique> <silent> <Leader><Leader><Leader> :CommandTFlush<CR>:CommandT<CR>
 let g:CommandTMatchWindowAtTop=1
+" }}}
 
 " Ack
 nnoremap <leader>a :Ack
@@ -242,10 +248,6 @@ let g:miniBufExplMapWindowNavArrows = 1
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
 
-nmap <leader>S :SessionList<CR>
-nmap <leader>SS :SessionSave<CR>
-nmap <leader>SA :SessionSaveAs<CR>
-
 " ,b to display current buffers list
 "let g:miniBufExplVSplit = 25
 "let g:miniBufExplorerMoreThanOne = 100
@@ -253,11 +255,16 @@ nmap <leader>SA :SessionSaveAs<CR>
 nmap <leader>b :MiniBufExplorer<cr>
 " }}}
 
-" bufexplorer
 " do lazy load	
+" bufexplorer {{{
 nmap <silent> <leader>be :cal <SID>LazyStart("bufexplorer", "be")<cr>
 nmap <silent> <leader>bs :cal <SID>LazyStart("bufexplorer", "bs")<cr>
 nmap <silent> <leader>bv :cal <SID>LazyStart("bufexplorer", "bv")<cr>
+" }}}
+
+nmap <leader>S :SessionList<CR>
+nmap <leader>SS :SessionSave<CR>
+nmap <leader>SA :SessionSaveAs<CR>
 
 " ConqueTerm {{{
 let g:Conque_Read_Timeout = 50 " timeout for waiting for command output.
@@ -274,14 +281,14 @@ nmap <leader>r :ConqueSplit
 let g:alternateRelativeFiles = 1
 let g:alternateNoDefaultAlternate = 1
 
-" YankRing {
+" YankRing {{{
 " map ,y to show the yankring
 nmap <leader>y :YRShow<cr>
 
 let g:yankring_replace_n_pkey = '<leader>['
 let g:yankring_replace_n_nkey = '<leader>]'
 let g:yankring_history_dir = '$HOME/.vim/tmp'
-" }
+" }}}
 
 " ,e to fast finding files. just type beginning of a name and hit TAB
 nmap <leader>e :e **/
@@ -346,7 +353,7 @@ if has("cscope")
 
 endif
 
-" LaTeX Suite things {
+" LaTeX Suite things {{{
 "set grepprg=grep\ -nH\ $*
 let g:tex_flavor = "latex"
 
@@ -382,7 +389,7 @@ let g:Tex_IgnoredWarnings ='
 let Tex_FoldedSections=""
 let Tex_FoldedEnvironments=""
 let Tex_FoldedMisc=""
-" }
+" }}}
 
 " ShowFuncName
 fun! ShowFuncName()
@@ -455,6 +462,8 @@ inoremap <C-Tab> <C-R>=delimitMate#JumpAny("\<C-Tab>")<CR>
 nnoremap ; :
 
 
+" Color Scheme {{{
+
 " Set color scheme according to current time of day.
 " We use dark for night, light for day time
 function! SetColorSchemeTime()
@@ -522,6 +531,8 @@ let g:solarized_hitrail=1
 let g:solarized_menu=0
 colo solarized
 
+" }}}
+
 " function for lazy loading.
 " Should be modified for all possible lazy plugins
 " by adding correct mappings
@@ -549,3 +560,4 @@ endfunc
 if filereadable(expand("~/.vim_local"))
   source ~/.vim_local
 endif
+
