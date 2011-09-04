@@ -78,11 +78,22 @@ set preserveindent  " preserve indentination
 
 set backspace=indent,eol,start		" allow backspacing over everything in insert mode
 
-" command-mode completion
+" command-mode completion {{{
 set wildmenu
-"Ignore these files when completing names and in Explorer
-set wildignore=.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,*.obj,*.pyc,*.swc,*.DS_STORE,*.bkp,*.aux
 set wildmode=list:longest
+
+set wildignore+=.hg,.git,.svn,CVS                " Version control
+set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files
+set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg   " binary images
+set wildignore+=*.luac                           " Lua byte code
+set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
+set wildignore+=*.class,*.mo,*.la,*.so,*.a
+set wildignore+=*.pyc                            " Python byte code
+set wildignore+=*.spl                            " compiled spelling word lists
+set wildignore+=*.sw?                            " Vim swap files
+set wildignore+=*.DS_Store?                      " OSX bullshit
+set wildignore+=*.bkp
+" }}}
 
 " insert-mode completion
 set complete=.,w,b,u,U,t,i,d
