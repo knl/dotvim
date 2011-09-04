@@ -1,11 +1,11 @@
-set nocompatible
-
 " vim:fdm=marker:
+filetype off
 call pathogen#infect('bundles')
 "call pathogen#helptags()
 
-syntax on
 filetype plugin indent on
+set nocompatible
+syntax on
 
 "inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
