@@ -386,6 +386,9 @@ if has("autocmd")
   	autocmd BufRead,BufNewFile jquery.*.js set filetype=javascript syntax=jquery
   	autocmd BufRead,BufNewFile *.jquery.js set filetype=javascript syntax=jquery
 
+	" quickfix niceties
+	autocmd Filetype qf setlocal colorcolumn=0 nolist nocursorline nowrap
+
 endif " has("autocmd")
 
 " let Tlist_Ctags_Cmd = "/usr/local/bin/ctags"
