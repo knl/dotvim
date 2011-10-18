@@ -307,6 +307,21 @@ nmap <leader>sh :ConqueSplit bash<cr>
 nmap <leader>r :ConqueSplit
 " }}}
 
+" braketed paste mode {{{
+" http://stackoverflow.com/questions/5585129/pasting-code-into-terminal-window-into-vim-on-mac-os-x
+if &term =~ "xterm.*"
+    let &t_ti = &t_ti . "\e[?2004h"
+    let &t_te = "\e[?2004l" . &t_te
+    function XTermPasteBegin(ret)
+        set pastetoggle=<Esc>[201~
+        set paste
+        return a:ret
+    endfunction
+    map <expr> <Esc>[200~ XTermPasteBegin("i")
+    imap <expr> <Esc>[200~ XTermPasteBegin("")
+endif
+" }}}
+
 " A-CPP
 let g:alternateRelativeFiles = 1
 let g:alternateNoDefaultAlternate = 1
