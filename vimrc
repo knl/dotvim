@@ -127,7 +127,9 @@ set softtabstop=4
 set expandtab " expand tabs
 set shiftround		" use a multiple of sw for <
 set smarttab
-set colorcolumn=+1
+"set formatoptions=qrn1
+" currently crashes vim
+"set colorcolumn=+1
 " }}}
 
 " Tabs
