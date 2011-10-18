@@ -378,6 +378,13 @@ if has("autocmd")
 		autocmd FileType cpp	     setlocal ts=4 sw=4 sts=4 cindent tw=0 cino= ai fdm=manual
 	augroup END
 
+	" Correct bad filetype detection
+  	autocmd BufRead,BufNewFile *.erb set filetype=eruby
+  	autocmd BufRead,BufNewFile *.ru set filetype=ruby
+  	autocmd BufRead,BufNewFile *.thrift set filetype=thrift
+  	autocmd BufRead,BufNewFile *.zsh-theme set filetype=zsh
+  	autocmd BufRead,BufNewFile jquery.*.js set filetype=javascript syntax=jquery
+  	autocmd BufRead,BufNewFile *.jquery.js set filetype=javascript syntax=jquery
 
 endif " has("autocmd")
 
