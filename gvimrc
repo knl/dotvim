@@ -18,3 +18,7 @@ au WinLeave * setlocal norelativenumber
 
 let g:solarized_bold=0
 let g:solarized_italic=0
+
+" needed for easymotion to nicely highlight latex documents
+autocmd Filetype tex hi link EasyMotionTarget ErrorMsg 
+autocmd Filetype tex hi link EasyMotionShade  Comment
