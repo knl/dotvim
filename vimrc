@@ -37,6 +37,11 @@ endif
 set statusline+=%h%m%r%=%-14.(%l,%c%V%)\ %P
 
 set laststatus=2
+
+let g:statline_syntastic=0
+let g:statline_fugitive=1
+let g:statline_mixed_indent=1
+let g:statline_trailing_space=1
 " }}}
 
 "set cuc
