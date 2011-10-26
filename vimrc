@@ -247,12 +247,12 @@ let g:NERD_shut_up=1
 " }}}
 
 " Supertab {{{
-let g:SuperTabNoCompleteAfter = ['\s','\d','^']
+let g:SuperTabNoCompleteAfter = ['\s','\d','^','}',']',')']
 " this doesn't work for some reason
 let g:SuperTabMappingTabLiteral = '<c-tab>'
 let g:SuperTabLongestHighlight = 1
-let g:SuperTabMappingForward = '<s-tab>'
-let g:SuperTabMappingBackward = '<tab>'
+let g:SuperTabMappingForward = '<tab>'
+let g:SuperTabMappingBackward = '<s-tab>'
 " }}}
 
 " miniBufExplorer {{{
