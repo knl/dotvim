@@ -7,9 +7,6 @@
 [submodule "bundles/vcscommand"]
 	path = bundles/vcscommand
 	url = git://repo.or.cz/vcscommand
-[submodule "bundles/command-t"]
-	path = bundles/command-t
-	url = git://github.com/wincent/Command-T.git
 [submodule "bundles/supertab"]
 	path = bundles/supertab
 	url = git://github.com/ervandew/supertab.git
@@ -118,3 +115,6 @@
 [submodule "bundles/statline"]
 	path = bundles/statline
 	url = git://github.com/millermedeiros/vim-statline.git
+[submodule "bundles/ctrlp"]
+	path = bundles/ctrlp
+	url = git://github.com/kien/ctrlp.vim.git

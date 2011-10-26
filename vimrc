@@ -224,13 +224,6 @@ runtime plugin/matchit.vim
 map <S-Insert> <MiddleMouse>
 map! <S-Insert> <MiddleMouse>
 
-" do lazy load
-" CommandT {{{
-nmap <silent> <leader><leader> :cal <SID>LazyStart("command-t", g:mapleader)<cr>
-nmap <unique> <silent> <Leader><Leader><Leader> :CommandTFlush<CR>:CommandT<CR>
-let g:CommandTMatchWindowAtTop=1
-" }}}
-
 " Ack
 nnoremap <leader>a :Ack
 
@@ -290,6 +283,11 @@ nmap <leader>b :MiniBufExplorer<cr>
 nmap <silent> <leader>be :cal <SID>LazyStart("bufexplorer", "be")<cr>
 nmap <silent> <leader>bs :cal <SID>LazyStart("bufexplorer", "bs")<cr>
 nmap <silent> <leader>bv :cal <SID>LazyStart("bufexplorer", "bv")<cr>
+" }}}
+
+" CtrlP (fuzzy explorer) {{{
+let g:ctrlp_map = '<leader><leader>'
+let g:ctrlp_by_filename = 0
 " }}}
 
 nmap <leader>S :SessionList<CR>
@@ -603,9 +601,6 @@ func! s:LazyStart(plugin, mapping)
         nunmap <leader>be
         nunmap <leader>bs
         nunmap <leader>bv
-    elseif a:plugin == 'command-t'
-    	nunmap <leader><leader>
-		nmap <unique> <silent> <leader><leader> :CommandT<CR>
     endif
     execute 'so '.plug_dir.a:plugin.'.vim'
 	execute "normal " . g:mapleader . a:mapping
