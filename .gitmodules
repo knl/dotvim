@@ -118,3 +118,6 @@
 [submodule "bundles/ctrlp"]
 	path = bundles/ctrlp
 	url = git://github.com/kien/ctrlp.vim.git
+[submodule "bundles/indent-guide"]
+	path = bundles/indent-guide
+	url = git://github.com/nathanaelkane/vim-indent-guides.git
