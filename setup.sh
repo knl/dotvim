@@ -41,10 +41,11 @@ if has("cscope")
 endif
 EOL
 
+# old plugin, not used anymore... left for reference
 # command-t needs to be built
-cd ~/.vim/lazy/command-t/ruby/command-t/
-ruby extconf.rb
-make
+#cd ~/.vim/lazy/command-t/ruby/command-t/
+#ruby extconf.rb
+#make
 
 cd $CURDIR
 
