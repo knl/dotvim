@@ -24,7 +24,7 @@
 	url = git://github.com/rson/vim-conque.git
 [submodule "bundles/markdown"]
 	path = bundles/markdown
-	url = https://github.com/vim-scripts/Markdown.git
+	url = git://github.com/vim-scripts/Markdown.git
 [submodule "bundles/unimpaired"]
 	path = bundles/unimpaired
 	url = git://github.com/tpope/vim-unimpaired.git
@@ -42,13 +42,13 @@
 	url = git://github.com/vim-scripts/L9.git
 [submodule "bundles/vim-colors-solarized"]
 	path = bundles/vim-colors-solarized
-	url = https://github.com/altercation/vim-colors-solarized
+	url = git://github.com/altercation/vim-colors-solarized
 [submodule "bundles/yankring"]
 	path = bundles/yankring
 	url = git://github.com/ornicar/vim-yankring.git
 [submodule "bundles/minibufexpl"]
 	path = bundles/minibufexpl
-	url = https://github.com/fholgado/minibufexpl.vim.git
+	url = git://github.com/fholgado/minibufexpl.vim.git
 [submodule "bundles/cscope"]
 	path = bundles/cscope
 	url = git://github.com/vim-scripts/cscope_macros.vim.git
@@ -72,7 +72,7 @@
 	url = git://github.com/scrooloose/nerdtree.git
 [submodule "bundles/repeat"]
 	path = bundles/repeat
-	url = https://github.com/tpope/vim-repeat
+	url = git://github.com/tpope/vim-repeat
 [submodule "bundles/space"]
 	path = bundles/space
 	url = git://github.com/spiiph/vim-space.git
@@ -93,7 +93,7 @@
 	url = git://github.com/gregsexton/gitv.git
 [submodule "bundles/vim-emacscommandline"]
 	path = bundles/vim-emacscommandline
-	url = https://github.com/houtsnip/vim-emacscommandline
+	url = git://github.com/houtsnip/vim-emacscommandline
 [submodule "bundles/tagbar"]
 	path = bundles/tagbar
 	url = git://github.com/majutsushi/tagbar
