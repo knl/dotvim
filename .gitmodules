@@ -121,3 +121,6 @@
 [submodule "bundles/indent-guide"]
 	path = bundles/indent-guide
 	url = git://github.com/nathanaelkane/vim-indent-guides.git
+[submodule "bundles/threesome"]
+	path = bundles/threesome
+	url = https://github.com/sjl/threesome.vim.git
