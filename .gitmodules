@@ -124,3 +124,12 @@
 [submodule "bundles/threesome"]
 	path = bundles/threesome
 	url = https://github.com/sjl/threesome.vim.git
+[submodule "bundles/molokai"]
+	path = bundles/molokai
+	url = https://github.com/tomasr/molokai.git
+[submodule "bundles/mojo"]
+	path = bundles/mojo
+	url = https://github.com/yko/mojo.vim.git
+[submodule "bundles/powerline"]
+	path = bundles/powerline
+	url = https://github.com/Lokaltog/vim-powerline.git
