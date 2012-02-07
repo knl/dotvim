@@ -1,91 +1,230 @@
-" vim:fdm=marker:
+" .vimrc
+" Author: Nikola Knezevic <laladelausanne@gmail.com>
+"
+" Heavily inspired by Steve Losh's .vimrc
+
+" Preamble ---------------------------------------------------------------- {{{
+
 filetype off
 call pathogen#infect('bundles')
 "call pathogen#helptags()
-
 filetype plugin indent on
 set nocompatible
-syntax on
 
-"inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
-let bash_is_sh=1
-set cinoptions=:0,(s,u0,U1,g0,t0
-
-set modelines=5
-set tags=tags;/
-
-" default:
-" set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
-"set statusline=%<%f\ %h%m%r%#warningmsg#%{SyntasticStatuslineFlag()}%*%=%-14.(%l,%c%V%)\ %P
-" highlihgt the file name
-hi User1 term=bold,reverse cterm=bold ctermfg=4 ctermbg=2 gui=bold guifg=Blue guibg=#44aa00
-"set statusline=%<%1*%f%*\ %h%m%r%#warningmsg#%{SyntasticStatuslineFlag()}%*%=%-14.(%l,%c%V%)\ %P
-" Read the location of external programs used by the configuration
-if filereadable(expand("$HOME/.vim/external.vim"))
-	source $HOME/.vim/external.vim
-endif
-
-let VCSCommandEnableBufferSetup=1
-
-" Setting statusline properly {{{
-set statusline=%<%f
-set statusline+=\ %{exists('loaded_VCSCommand')?VCSCommandGetStatusLine():''}
-if exists("*SyntasticStatuslineFlag")
-	set statusline+=\ %{SyntasticStatuslineFlag()}
-endif
-set statusline+=%h%m%r%=%-14.(%l,%c%V%)\ %P
-
-set laststatus=2
-
-let g:statline_syntastic=0
-let g:statline_fugitive=1
-let g:statline_mixed_indent=1
-let g:statline_trailing_space=1
 " }}}
 
+" Basic options ----------------------------------------------------------- {{{
 "set cuc
 "set cul
-
 "set number
-
 "set t_Co=256
 
 set encoding=utf-8
-set textwidth=0         " Do not wrap words (insert)
+set modelines=0
 set nowrap              " Do not wrap words (view)
-set showcmd             " Show (partial) command in status line.
 set showmatch           " Show matching brackets.
-set ignorecase          " Do case insensitive matching
-set smartcase           " do not ignore if search pattern has CAPS
-set incsearch           " Incremental search
-set gdefault			" Turn on global replace (//g)
-set hlsearch            " Highlight search match
-set hidden              " enable multiple modified buffers
-set nobackup            " do not write backup files
-set notimeout
-set nottimeout
 set autoread			" Set to auto read when a file is changed from the outside
 set autowrite 			" write on any :next, :make and such
 "set noswapfile          " do not write .swp files
-set foldcolumn=0        " columns for folding
-set foldmethod=indent
-set foldlevel=9
 set history=1000
-set ruler
-set visualbell
-set autoread            " automatically read feil that has been changed on disk and doesn't have changes in vim
-set backspace=indent,eol,start
+set backspace=indent,eol,start		" allow backspacing over everything in insert mode
 set guioptions-=T       " disable toolbar"
+set showmode
+set showcmd
+set hidden
+set visualbell
+set laststatus=2
+
+set cpoptions+=J
 
 set autoindent		" always set autoindenting on
 set smartindent     " smart indenting
 set copyindent		" copy indent from previous line on autoindent
 set preserveindent  " preserve indentination
 
-set backspace=indent,eol,start		" allow backspacing over everything in insert mode
+set list
+set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 
-" command-mode completion {{{
+set fillchars=diff:⣿
+
+set lazyredraw
+set matchtime=3
+set showbreak=↪
+
+set splitbelow
+set splitright
+
+set ttimeout
+set notimeout
+set nottimeout
+set autowrite
+set autoread
+set title
+set linebreak
+
+set relativenumber
+set ttyfast
+
+set cinoptions=:0,(s,u0,U1,g0,t0
+
+set dictionary=/usr/share/dict/words
+
+set tags=tags;/
+
+set noeol " prevent vim from adding that stupid empty line at the end of every file
+set binary
+
+" Line Return {{{
+
+" Make sure Vim returns to the same line when you reopen a file.
+" Thanks, Amit
+augroup line_return
+    au!
+    au BufReadPost *
+        \ if line("'\"") > 0 && line("'\"") <= line("$") |
+        \     execute 'normal! g`"zvzz' |
+        \ endif
+augroup END
+
+" }}}
+"inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Tabs and Spaces {{{
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab " expand tabs
+set shiftround		" use a multiple of sw for <
+set smarttab
+set wrap
+set textwidth=80
+set formatoptions=qrn1
+set colorcolumn=+1
+
+set guitablabel=%N/\ %t\ %M
+"set formatoptions=qrn1
+" }}}
+
+" Backups {{{
+set undofile
+set undoreload=10000
+
+set backup                        " enable backups
+set nobackup                      " do not write backup files
+set noswapfile                    " It's 2012, Vim.
+
+set undodir=$HOME/.vim/tmp/undo     " undo files
+set backupdir=$HOME/.vim/backup
+set directory=$HOME/.vim/tmp
+
+" Make Vim able to edit crontab files again.
+set backupskip=/tmp/*,/private/tmp/*" 
+" }}}
+
+" Leader {{{
+
+let mapleader = ","
+let g:mapleader = ","
+
+let maplocalleader = "\\"
+let g:maplocalleader = "\\"
+" }}}
+
+let bash_is_sh=1
+
+" Color scheme {{{
+
+syntax on
+set background=dark
+
+if (!has('gui_running'))
+	let g:solarized_termcolors=16
+endif
+
+" avoid calling functions to set :colo, since it flashes nasty
+let g:solarized_style="dark"
+let g:colo_name="solarized"
+let g:solarized_hitrail=1
+let g:solarized_menu=0
+
+if (!has('gui_running'))
+	let g:solarized_termcolors=16
+    colorscheme solarized 
+else 
+    colorscheme molokai
+endif
+"
+" Highlight VCS conflict markers
+match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+
+" highlight the file name
+hi User1 term=bold,reverse cterm=bold ctermfg=4 ctermbg=2 gui=bold guifg=Blue guibg=#44aa00
+
+hi SpellErrors guibg=red guifg=black ctermbg=red ctermfg=black
+
+" Set color scheme according to current time of day (with solarized)
+" We use dark for night, light for day time
+function! SetColorSchemeTime() " {{{
+  let hr = str2nr(strftime('%H'))
+  if hr <= 7
+    let i = 0
+  elseif hr <= 20
+    let i = 1
+  else
+    let i = 0
+  endif
+  if i == 0
+	  call DarkColorScheme()
+  else
+	  call LightColorScheme()
+  endif
+endfunction " }}}
+function! LightColorScheme() " {{{
+	let g:solarized_style="light"
+	set background=light
+	exec "colo" g:colo_name
+	redraw
+endfunction " }}}
+function! DarkColorScheme() " {{{
+	let g:solarized_style="dark"
+	set background=dark
+	exec "colo" g:colo_name
+	redraw
+endfunction " }}}
+function! ToggleBackground() " {{{
+    if (g:solarized_style=="dark")
+		call LightColorScheme()
+	else
+		call DarkColorScheme()
+	endif
+endfunction " }}}
+
+command! Togbg call ToggleBackground()
+nnoremap <F5> :call ToggleBackground()<CR>
+inoremap <F5> <ESC>:call ToggleBackground()<CR>a
+vnoremap <F5> <ESC>:call ToggleBackground()<CR>
+
+command -bar -nargs=0 SetColorSchemeTime :call SetColorSchemeTime()
+command -bar -nargs=0 LightColorScheme :call LightColorScheme()
+command -bar -nargs=0 DarkColorScheme :call DarkColorScheme()
+nnoremap <S-F7> :SetColorSchemeTime()<CR>
+
+" }}}
+" }}} 
+
+" Read the location of external programs used by the configuration
+if filereadable(expand("$HOME/.vim/external.vim"))
+	source $HOME/.vim/external.vim
+endif
+
+" Save when losing focus
+au FocusLost * :wa
+
+" Resize splits when the window is resized
+au VimResized * exe "normal! \<c-w>="
+
+" Completion -------------------------------------------------------------- {{{
+" Wildmenu completion {{{
 set wildmenu
 set wildmode=list:longest
 
@@ -102,136 +241,452 @@ set wildignore+=*.DS_Store?                      " OSX bullshit
 set wildignore+=*.bkp
 " }}}
 
-" Make Vim able to edit crontab files again.
-set backupskip=/tmp/*,/private/tmp/*" 
-
-" Save when losing focus
-au FocusLost * :wa
-
-" Resize splits when the window is resized
-au VimResized * exe "normal! \<c-w>="
-
+" Completion options {{{
 " insert-mode completion
 set complete=.,w,b,u,U,t,i,d
+
+set completeopt=longest,menuone,preview
 
 " Omni completion settings
 set infercase
 set ofu=syntaxcomplete#Complete
-"set completeopt=menuone,preview,longest
-set completeopt=menuone,preview
+" }}}
+" }}}
+" Searching and movement -------------------------------------------------- {{{
+" Fix matching (use sane regexes)
+nnoremap / /\v
+vnoremap / /\v
 
-" Tabs and Spaces {{{
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set expandtab " expand tabs
-set shiftround		" use a multiple of sw for <
-set smarttab
-"set formatoptions=qrn1
-" currently crashes vim
-"set colorcolumn=+1
+" remove highlight on matched
+noremap <leader><space> :noh<cr>:call clearmatches()<cr>
+"nnoremap <leader><space> :silent noh<cr>
+
+set ignorecase          " Do case insensitive matching
+set smartcase           " do not ignore if search pattern has CAPS
+set incsearch           " Incremental search
+set gdefault            " Turn on global replace (//g)
+set hlsearch            " Highlight search match
+
+set scrolloff=3
+set sidescroll=1
+set sidescrolloff=10
+
+set virtualedit+=block
+
+" extended '%' mapping for if/then/else/end etc
+runtime macros/matchit.vim
+map <tab> %
+
+" Made D behave
+nnoremap D d$
+
+" Keep search matches in the middle of the window and pulse the line when moving
+" to them.
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+" Don't move on *
+nnoremap * *<c-o>
+
+" Same when jumping around
+nnoremap g; g;zz
+nnoremap g, g,zz
+
+" Window resizing
+nnoremap <c-left> 5<c-w>>
+nnoremap <c-right> 5<c-w><
+
+" Easier to type, and I never use the default behavior.
+noremap H ^
+noremap L g_
+
+" Heresy
+inoremap <c-a> <esc>I
+inoremap <c-e> <esc>A
+
+" Open a Quickfix window for the last search.
+nnoremap <silent> <leader>/ :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
+
+" Ack for the last search.
+nnoremap <silent> <leader>? :execute "Ack! '" . substitute(substitute(substitute(@/, "\\\\<", "\\\\b", ""), "\\\\>", "\\\\b", ""), "\\\\v", "", "") . "'"<CR>
+
+" Fix linewise visual selection of various text objects
+nnoremap VV V
+nnoremap Vit vitVkoj
+nnoremap Vat vatV
+nnoremap Vab vabV
+nnoremap VaB vaBV
+
+" Error navigation {{{
+"
+"             Location List     QuickFix Window
+"            (e.g. Syntastic)     (e.g. Ack)
+"            ----------------------------------
+" Next      |     M-j               M-Down     |
+" Previous  |     M-k                M-Up      |
+"            ----------------------------------
+"
+nnoremap ∆ :lnext<cr>zvzz
+nnoremap ˚ :lprevious<cr>zvzz
+inoremap ∆ <esc>:lnext<cr>zvzz
+inoremap ˚ <esc>:lprevious<cr>zvzz
+nnoremap <m-Down> :cnext<cr>zvzz
+nnoremap <m-Up> :cprevious<cr>zvzz
 " }}}
 
-" Tabs
-set guitablabel=%N/\ %t\ %M
+" do not use arrow keys {{{
+noremap  <Up> ""
+noremap! <Up> <Esc>
+noremap  <Down> ""
+noremap! <Down> <Esc>
+noremap  <Left> ""
+noremap! <Left> <Esc>
+noremap  <Right> ""
+noremap! <Right> <Esc>
 
-"set formatoptions=qrn1
+cnoremap <M-Up> <Up>
+cnoremap <M-Down> <Down>
+" }}}
+" Directional Keys {{{
 
-if has("macunix")
-	"let s:name = system("uname")
-	"if s:name == "Darwin"
-		set relativenumber
-		set ttyfast
-	"endif
-endif
+" It's 2011.
+noremap j gj
+noremap k gk
 
-" prevent vim from adding that stupid empty line at the end of every file
-set noeol
-set binary
-
-hi SpellErrors guibg=red guifg=black ctermbg=red ctermfg=black
-
-set backupdir=$HOME/.vim/backup,.
-set directory=$HOME/.vim/tmp,.
-
-"if has("mouse")
-  "set mouse=a
-"endif
-
-" enable showmmarks {{{
-let g:showmarks_enable = 1
-hi! link ShowMarksHLl LineNr
-hi! link ShowMarksHLu LineNr
-hi! link ShowMarksHLo LineNr
-hi! link ShowMarksHLm LineNr
+" Easy buffer navigation
+noremap <C-h>  <C-w>h
+noremap <C-j>  <C-w>j
+noremap <C-k>  <C-w>k
+noremap <C-l>  <C-w>l
+noremap <leader>v <C-w>v
 " }}}
 
-" Make
-:command -nargs=* Make make <args> | cwindow 3
+" Bash like keys for the command line {{{
+cnoremap <C-A>      <Home>
+cnoremap <C-E>      <End>
+cnoremap <C-K>      <C-U>
 
-"set completeopt=menuone,preview,longest
-set completeopt=menuone,preview
-"inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+cnoremap <C-P> <Up>
+cnoremap <C-N> <Down>
 
-" Omni completion settings
-set ofu=syntaxcomplete#Complete
-let g:rubycomplete_buffer_loading = 0
-let g:rubycomplete_classes_in_global = 1
-" completing Rails hangs a lot
-"let g:rubycomplete_rails = 1
+cunmap <Left>
+cunmap <Right>
+" }}}
 
-" syntastic
-let g:syntastic_enable_signs=1
-let g:syntastic_auto_loc_list=0
+" Visual Mode */# from Scrooloose {{{
 
-" delimitMate
-let g:delimitMate_expand_space = 1
-let g:delimitMate_expand_cr = 1
+function! s:VSetSearch()
+  let temp = @@
+  norm! gvy
+  let @/ = '\V' . substitute(escape(@@, '\'), '\n', '\\n', 'g')
+  let @@ = temp
+endfunction
 
+vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR><c-o>
+vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR><c-o>
 
-let mapleader = ","
-let g:mapleader = ","
+" }}}
+
+" }}}
+" Folding ----------------------------------------------------------------- {{{
+
+set foldcolumn=0        " columns for folding
+set foldmethod=indent
+set foldlevel=9
+set foldlevelstart=0
+
+" Make the current location sane.
+nnoremap <c-cr> zvzz
+
+" Space to toggle folds.
+nnoremap <Space> za
+vnoremap <Space> za
+
+" Make zO recursively open whatever top level fold we're in, no matter where the
+" cursor happens to be.
+nnoremap zO zCzO
+
+" Use ,z to "focus" the current fold.
+nnoremap <leader>z zMzvzz
+
+function! MyFoldText() " {{{
+    let line = getline(v:foldstart)
+
+    let nucolwidth = &fdc + &number * &numberwidth
+    let windowwidth = winwidth(0) - nucolwidth - 3
+    let foldedlinecount = v:foldend - v:foldstart
+
+    " expand tabs into spaces
+    let onetab = strpart('          ', 0, &tabstop)
+    let line = substitute(line, '\t', onetab, 'g')
+
+    let line = strpart(line, 0, windowwidth - 2 -len(foldedlinecount))
+    let fillcharcount = windowwidth - len(line) - len(foldedlinecount)
+    return line . '…' . repeat(" ",fillcharcount) . foldedlinecount . '…' . ' '
+endfunction " }}}
+set foldtext=MyFoldText()
+
+" }}}
+" Various infuriating keys ------------------------------------------------ {{{
+
+" Fuck you, help key.
+noremap  <F1> :set invfullscreen<CR>
+inoremap <F1> <ESC>:set invfullscreen<CR>a
+
+" Fuck you too, manual key.
+nnoremap K <nop>
+
+" Stop it, hash key.
+inoremap # X<BS>#
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
+
+" when deleting single chars, don't polute yank history
+noremap x "_x
+"
+" for mistyping :w as :W
+command! W :w
+
+" }}}
+" Convenience mappings ---------------------------------------------------- {{{
+
+nnoremap ; :
 
 "Switch to current dir
 map <leader>cd :cd %:p:h<cr>
 
 " highlight trailing whitespace
-set listchars=tab:▷⋅,trail:·,eol:$
 nmap <silent> <leader>s :set nolist!<CR>
 
-" when deleting single chars, don't polute yank history
-noremap x "_x
-"
 " Remove trailing whitespace
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
 "Remove indenting on empty lines
 map <F2> :%s/\s*$//g<cr>:noh<cr>''
 
-" Fix matching
-nnoremap / /\v
-vnoremap / /\v
-" remove highlight on matched
-noremap <leader><space> :noh<cr>:call clearmatches()<cr>
-
-" extended '%' mapping for if/then/else/end etc
-runtime plugin/matchit.vim
-
 " Make shift-insert work like in Xterm
 map <S-Insert> <MiddleMouse>
 map! <S-Insert> <MiddleMouse>
 
-" Ack
-nnoremap <leader>a :Ack
+" Omni completion settings
+let g:rubycomplete_buffer_loading = 0
+let g:rubycomplete_classes_in_global = 1
+" completing Rails hangs a lot
+"let g:rubycomplete_rails = 1
 
 " Select pasted text
 nnoremap <leader>v V`]
 
-" Ctrol-E to switch between 2 last buffers
+" Ctrl-E to switch between 2 last buffers
 nmap <C-E> :b#<CR>
+
+nmap <leader>S :SessionList<CR>
+nmap <leader>SS :SessionSave<CR>
+nmap <leader>SA :SessionSaveAs<CR>
+
+" ,e to fast finding files. just type beginning of a name and hit TAB
+nmap <leader>e :e **/
+" }}}
+" Utility functions ------------------------------------------------------- {{{
+
+" ShowFuncName {{{
+fun! ShowFuncName()
+	let lnum = line(".")
+	let col = col(".")
+	echohl ModeMsg
+	echo getline(search("^[^ \t#/]\\{2}.*[^:]\s*$", 'bW'))
+	echohl None
+	call search("\\%" . lnum . "l" . "\\%" . col . "c")
+endfun
+map <leader>f :call ShowFuncName() <CR>
+" }}}
+
+" Whitespace problem handling {{{
+let c_space_errors=1
+function ShowSpaces(...)
+	let @/="\\v(\\s+$)|( +\\ze\\t)"
+	let oldhlsearch=&hlsearch
+	if !a:0
+		let &hlsearch=!&hlsearch
+	else
+		let &hlsearch=a:1
+	end
+	return oldhlsearch
+endfunction
+
+function TrimSpaces() range
+	let oldhlsearch=ShowSpaces(1)
+	execute a:firstline.",".a:lastline."substitute ///gec"
+	let &hlsearch=oldhlsearch
+endfunction
+
+command -bar -nargs=? ShowSpaces call ShowSpaces(<args>)
+command -bar -nargs=0 -range=% TrimSpaces <line1>,<line2>call TrimSpaces()
+nnoremap <F4>     :ShowSpaces 1<CR>
+nnoremap <S-F4>   m`:TrimSpaces<CR>``
+vnoremap <S-F4>   :TrimSpaces<CR>
+" }}}
+
+" Bracketed paste mode {{{
+" http://stackoverflow.com/questions/5585129/pasting-code-into-terminal-window-into-vim-on-mac-os-x
+if &term =~ "xterm.*"
+    let &t_ti = &t_ti . "\e[?2004h"
+    let &t_te = "\e[?2004l" . &t_te
+    function XTermPasteBegin(ret)
+        set pastetoggle=<Esc>[201~
+        set paste
+        return a:ret
+    endfunction
+    map <expr> <Esc>[200~ XTermPasteBegin("i")
+    imap <expr> <Esc>[200~ XTermPasteBegin("")
+endif
+" }}}
+
+" Make {{{
+:command -nargs=* Make make <args> | cwindow 3
+" }}}
+
+" }}}
+" Various filetype-specific stuff ----------------------------------------- {{{
+" Only do this part when compiled with support for autocommands.
+if has("autocmd")
+	autocmd Filetype tex setlocal nofoldenable tw=80 spell spelllang=en
+	" When dealing with TeX, we need autocomplete of picture names
+	autocmd Filetype tex setlocal wildignore-=*.jpg,*.bmp,*.gif,*.png,*.jpeg
+
+	" C {{{
+
+	augroup ft_c 
+    	au!
+    	autocmd FileType c      setlocal foldmethod=syntax nofoldenable
+    	autocmd FileType cpp    setlocal foldmethod=syntax nofoldenable
+		autocmd FileType objc   setlocal ts=8 sw=8 sts=8 ai  fdm=manual
+		"autocmd FileType h	     setlocal ts=8 sw=8 sts=8 ai tw=0 noexpandtab fdm=manual
+		"autocmd FileType c	     setlocal ts=8 sw=8 sts=8 cindent tw=0 cino= ai noexpandtab fdm=manual
+		"autocmd FileType cpp	     setlocal ts=8 sw=8 sts=8 cindent tw=0 cino= ai fdm=manual
+		autocmd BufEnter *.c,*.h,*.cpp,*.hpp,*.cc source ~/.vim/c.vim
+	augroup END " }}}
+
+	" Vim {{{
+	" Use the default filetype settings, so that mail gets 'tw' set to 72,
+	" 'cindent' is on in C files, etc.
+	" Put these in an autocmd group, so that we can delete them easily.
+	augroup vimrcEx
+		au!
+
+		" For all text files set 'textwidth' to 78 characters.
+		autocmd FileType text setlocal textwidth=78
+
+    	au FileType vim setlocal foldmethod=marker
+    	au FileType help setlocal textwidth=78
+    	au BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
+	augroup END " }}}
+
+	" Markdown {{{
+	augroup ft_markdown
+    	au!
+
+    	au BufNewFile,BufRead *.m*down setlocal filetype=markdown
+
+    	" Use <localleader>1/2/3 to add headings.
+    	au Filetype markdown nnoremap <buffer> <localleader>1 yypVr=
+    	au Filetype markdown nnoremap <buffer> <localleader>2 yypVr-
+    	au Filetype markdown nnoremap <buffer> <localleader>3 I### <ESC>
+	augroup END
+
+	" }}}
+
+	" Correct bad filetype detection {{{
+  	autocmd BufRead,BufNewFile *.erb set filetype=eruby
+  	autocmd BufRead,BufNewFile *.ru set filetype=ruby
+  	autocmd BufRead,BufNewFile *.thrift set filetype=thrift
+  	autocmd BufRead,BufNewFile *.zsh-theme set filetype=zsh
+  	autocmd BufRead,BufNewFile jquery.*.js set filetype=javascript syntax=jquery
+  	autocmd BufRead,BufNewFile *.jquery.js set filetype=javascript syntax=jquery
+  	" }}}
+
+	" Python {{{
+	augroup ft_python
+    	au!
+
+    	" au FileType python setlocal omnifunc=pythoncomplete#Complete
+    	au FileType python setlocal define=^\s*\\(def\\\\|class\\)
+    	au FileType python compiler nose
+    	au FileType man nnoremap <buffer> <cr> :q<cr>
+    	
+    	" Jesus tapdancing Christ, built-in Python syntax, you couldn't let me
+    	" override this in a normal way, could you?
+    	au FileType python if exists("python_space_error_highlight") | unlet python_space_error_highlight | endif
+
+    	" Jesus, Python.  Five characters of punctuation for a damn string?
+    	au FileType python inoremap <buffer> <d-'> _(u'')<left><left>
+	augroup END " }}}
+
+	" QuickFix {{{
+	" quickfix niceties
+	augroup ft_quickfix
+    	au!
+    	au Filetype qf setlocal colorcolumn=0 nolist nocursorline nowrap
+	augroup END " }}}
+
+endif " has("autocmd")
+" }}}
+" Plugin settings --------------------------------------------------------- {{{
+" Showmmarks {{{
+let g:showmarks_enable = 1
+hi! link ShowMarksHLl LineNr
+hi! link ShowMarksHLu LineNr
+hi! link ShowMarksHLo LineNr
+hi! link ShowMarksHLm LineNr
+" }}}
+" Netrw {{{
+let g:netrw_sort_sequence='[\/]$,\.h$,\.hh$,\.c$,\.cc$,\.cpp$,*,\.o$,\.obj$,\.info$,\.swp$,\.bak$,\~$'
+" }}}
+
+" Indent Guides {{{
+let g:indentguides_state = 0
+function! IndentGuides() " {{{
+    if g:indentguides_state
+        let g:indentguides_state = 0
+        2match None
+    else
+        let g:indentguides_state = 1
+        execute '2match IndentGuides /\%(\_^\s*\)\@<=\%(\%'.(0*&sw+1).'v\|\%'.(1*&sw+1).'v\|\%'.(2*&sw+1).'v\|\%'.(3*&sw+1).'v\|\%'.(4*&sw+1).'v\|\%'.(5*&sw+1).'v\|\%'.(6*&sw+1).'v\|\%'.(7*&sw+1).'v\)\s/'
+    endif
+endfunction " }}}
+nnoremap <leader>i :call IndentGuides()<cr>
+
+" }}}
+
+" Powerline {{{
+
+let g:Powerline_symbols = 'fancy'
+"let g:Powerline_theme = 'sjl'
+"let g:Powerline_colorscheme = 'molokai'
+" }}}
+
+" Syntastic {{{
+let g:syntastic_enable_signs=1
+let g:syntastic_auto_loc_list=0
+
+let g:syntastic_disabled_filetypes = ['html']
+let g:syntastic_stl_format = '[%E{%e Errors}%B{, }%W{%w Warnings}]'
+let g:syntastic_jsl_conf = '$HOME/.vim/jsl.conf'
+" }}}
+
+" DelimitMate {{{
+let g:delimitMate_expand_space = 1
+let g:delimitMate_expand_cr = 1
+
+" Deal with DelimitMate
+inoremap <C-Tab> <C-R>=delimitMate#JumpAny("\<C-Tab>")<CR>
+" }}}
+
+" Ack {{{
+set grepprg=ack
+nnoremap <leader>a :Ack
+" }}}
 
 " NERDCommenter {{{
 " Ctrl-P to Display the file browser tree
@@ -253,6 +708,8 @@ let g:SuperTabMappingTabLiteral = '<c-tab>'
 let g:SuperTabLongestHighlight = 1
 let g:SuperTabMappingForward = '<tab>'
 let g:SuperTabMappingBackward = '<s-tab>'
+
+let g:SuperTabDefaultCompletionType = "<c-n>"
 " }}}
 
 " miniBufExplorer {{{
@@ -262,7 +719,7 @@ let g:miniBufExplModSelTarget = 0
 let g:miniBufExplUseSingleClick = 1
 let g:miniBufExplMapWindowNavVim = 1
 "let g:miniBufExplVSplit = 25
-"let g:miniBufExplSplitBelow=1
+let g:miniBufExplSplitBelow=0
 let g:miniBufExplMinSize = 2
 
 let g:bufExplorerSortBy = "name"
@@ -276,10 +733,10 @@ let g:miniBufExplModSelTarget = 1
 "let g:miniBufExplorerMoreThanOne = 100
 "let g:miniBufExplUseSingleClick = 1
 nmap <leader>b :MiniBufExplorer<cr>
+autocmd BufRead,BufNew :call UMiniBufExplorer
 " }}}
 
-" do lazy load	
-" bufexplorer {{{
+" bufexplorer (do lazy load) {{{
 nmap <silent> <leader>be :cal <SID>LazyStart("bufexplorer", "be")<cr>
 nmap <silent> <leader>bs :cal <SID>LazyStart("bufexplorer", "bs")<cr>
 nmap <silent> <leader>bv :cal <SID>LazyStart("bufexplorer", "bv")<cr>
@@ -288,11 +745,14 @@ nmap <silent> <leader>bv :cal <SID>LazyStart("bufexplorer", "bv")<cr>
 " CtrlP (fuzzy explorer) {{{
 let g:ctrlp_map = '<leader><leader>'
 let g:ctrlp_by_filename = 0
+let g:ctrlp_cache_dir = expand("$HOME/.vim/tmp")
+let g:ctrlp_mruf_exclude = '/tmp/.*\|/temp/.*' " MacOSX/Linux
 " }}}
 
-nmap <leader>S :SessionList<CR>
-nmap <leader>SS :SessionSave<CR>
-nmap <leader>SA :SessionSaveAs<CR>
+" FuzzyFinder {{{
+" ,f to fast finding files using fuzzy finder.
+nmap <leader>F :FufFile **/<CR>
+" }}}
 
 " ConqueTerm {{{
 let g:Conque_Read_Timeout = 50 " timeout for waiting for command output.
@@ -305,24 +765,10 @@ nmap <leader>sh :ConqueSplit bash<cr>
 nmap <leader>r :ConqueSplit
 " }}}
 
-" braketed paste mode {{{
-" http://stackoverflow.com/questions/5585129/pasting-code-into-terminal-window-into-vim-on-mac-os-x
-if &term =~ "xterm.*"
-    let &t_ti = &t_ti . "\e[?2004h"
-    let &t_te = "\e[?2004l" . &t_te
-    function XTermPasteBegin(ret)
-        set pastetoggle=<Esc>[201~
-        set paste
-        return a:ret
-    endfunction
-    map <expr> <Esc>[200~ XTermPasteBegin("i")
-    imap <expr> <Esc>[200~ XTermPasteBegin("")
-endif
-" }}}
-
-" A-CPP
+" A-CPP (.h <-> .c/cpp switching) {{{
 let g:alternateRelativeFiles = 1
 let g:alternateNoDefaultAlternate = 1
+" }}}
 
 " YankRing {{{
 " map ,y to show the yankring
@@ -333,69 +779,15 @@ let g:yankring_replace_n_nkey = '<leader>]'
 let g:yankring_history_dir = '$HOME/.vim/tmp'
 " }}}
 
-" ,e to fast finding files. just type beginning of a name and hit TAB
-nmap <leader>e :e **/
-
-" ,f to fast finding files using fuzzy finder.
-nmap <leader>f :FufFile **/<CR>
-
-" for mistyping :w as :W
-command! W :w
-
-" Only do this part when compiled with support for autocommands.
-if has("autocmd")
-
-	autocmd BufRead,BufNew :call UMiniBufExplorer
-	autocmd Filetype tex setlocal nofoldenable tw=80 spell spelllang=en
-
-	" Enable file type detection.
-	" Use the default filetype settings, so that mail gets 'tw' set to 72,
-	" 'cindent' is on in C files, etc.
-	" Put these in an autocmd group, so that we can delete them easily.
-	augroup vimrcEx
-		au!
-
-		" For all text files set 'textwidth' to 78 characters.
-		autocmd FileType text setlocal textwidth=78
-
-		" When editing a file, always jump to the last known cursor position.
-		" Don't do it when the position is invalid or when inside an event handler
-		" (happens when dropping a file on gvim).
-		autocmd BufReadPost *
-					\ if line("'\"") > 0 && line("'\"") <= line("$") |
-					\   exe "normal g`\"" |
-					\ endif
-
-	augroup END
-
-	" idents for c/c++ programs
-	augroup cprograms
-		autocmd FileType objc	     setlocal ts=4 sw=4 sts=4 ai  fdm=manual
-		autocmd FileType h	     setlocal ts=4 sw=4 sts=4 ai tw=0 fdm=manual
-		autocmd FileType c	     setlocal ts=4 sw=4 sts=4 cindent tw=0 cino= ai fdm=manual
-		autocmd FileType cpp	     setlocal ts=4 sw=4 sts=4 cindent tw=0 cino= ai fdm=manual
-	augroup END
-
-	" Correct bad filetype detection
-  	autocmd BufRead,BufNewFile *.erb set filetype=eruby
-  	autocmd BufRead,BufNewFile *.ru set filetype=ruby
-  	autocmd BufRead,BufNewFile *.thrift set filetype=thrift
-  	autocmd BufRead,BufNewFile *.zsh-theme set filetype=zsh
-  	autocmd BufRead,BufNewFile jquery.*.js set filetype=javascript syntax=jquery
-  	autocmd BufRead,BufNewFile *.jquery.js set filetype=javascript syntax=jquery
-
-	" quickfix niceties
-	autocmd Filetype qf setlocal colorcolumn=0 nolist nocursorline nowrap
-
-endif " has("autocmd")
-
+" Tlist {{{
 " let Tlist_Ctags_Cmd = "/usr/local/bin/ctags"
 " let Tlist_Sort_Type = "name"
 " let Tlist_Show_Menu = 1
 " let Tlist_Use_Right_Window = 1
 map <leader>T :TlistOpen<cr>
+" }}}
 
-
+" cscope ------------------------------------------------------------- {{{
 if has("cscope")
 	set cst
 
@@ -403,8 +795,7 @@ if has("cscope")
 
 	nmap cfg :cs find g
 	nmap cfs :cs find s
-
-endif
+endif " }}}
 
 " LaTeX Suite things {{{
 "set grepprg=grep\ -nH\ $*
@@ -444,149 +835,57 @@ let Tex_FoldedEnvironments=""
 let Tex_FoldedMisc=""
 " }}}
 
-" ShowFuncName
-fun! ShowFuncName()
-	let lnum = line(".")
-	let col = col(".")
-	echohl ModeMsg
-	echo getline(search("^[^ \t#/]\\{2}.*[^:]\s*$", 'bW'))
-	echohl None
-	call search("\\%" . lnum . "l" . "\\%" . col . "c")
-endfun
-map ,f :call ShowFuncName() <CR>
+" VCS {{{
+let VCSCommandEnableBufferSetup=1
+" }}}
 
-let g:netrw_sort_sequence='[\/]$,\.h$,\.hh$,\.c$,\.cc$,\.cpp$,*,\.o$,\.obj$,\.info$,\.swp$,\.bak$,\~$'
+" Threesome {{{
+let g:threesome_initial_mode = "grid"
 
-" Whitespace problems
-let c_space_errors=1
-function ShowSpaces(...)
-	let @/="\\v(\\s+$)|( +\\ze\\t)"
-	let oldhlsearch=&hlsearch
-	if !a:0
-		let &hlsearch=!&hlsearch
-	else
-		let &hlsearch=a:1
-	end
-	return oldhlsearch
-endfunction
+let g:threesome_initial_layout_grid = 1
+let g:threesome_initial_layout_loupe = 0
+let g:threesome_initial_layout_compare = 0
+let g:threesome_initial_layout_path = 0
 
-function TrimSpaces() range
-	let oldhlsearch=ShowSpaces(1)
-	execute a:firstline.",".a:lastline."substitute ///gec"
-	let &hlsearch=oldhlsearch
-endfunction
+let g:threesome_initial_diff_grid = 1
+let g:threesome_initial_diff_loupe = 0
+let g:threesome_initial_diff_compare = 0
+let g:threesome_initial_diff_path = 0
 
-command -bar -nargs=? ShowSpaces call ShowSpaces(<args>)
-command -bar -nargs=0 -range=% TrimSpaces <line1>,<line2>call TrimSpaces()
-nnoremap <F4>     :ShowSpaces 1<CR>
-nnoremap <S-F4>   m`:TrimSpaces<CR>``
-vnoremap <S-F4>   :TrimSpaces<CR>
+let g:threesome_initial_scrollbind_grid = 0
+let g:threesome_initial_scrollbind_loupe = 0
+let g:threesome_initial_scrollbind_compare = 0
+let g:threesome_initial_scrollbind_path = 0
 
-" do not use arrow keys
-noremap  <Up> ""
-noremap! <Up> <Esc>
-noremap  <Down> ""
-noremap! <Down> <Esc>
-noremap  <Left> ""
-noremap! <Left> <Esc>
-noremap  <Right> ""
-noremap! <Right> <Esc>
-
-cnoremap <M-Up> <Up>
-cnoremap <M-Down> <Down>
-
-" Bash like keys for the command line
-cnoremap <C-A>      <Home>
-cnoremap <C-E>      <End>
-cnoremap <C-K>      <C-U>
-
-cnoremap <C-P> <Up>
-cnoremap <C-N> <Down>
-
-cunmap <Left>
-cunmap <Right>
-
-" Deal with DelimitMate
-inoremap <C-Tab> <C-R>=delimitMate#JumpAny("\<C-Tab>")<CR>
-
-" It clears the search buffer
-" nmap <silent> <leader>/ :let @/=""<CR>
-
-nnoremap ; :
-
-
-" Color Scheme {{{
-
-" Set color scheme according to current time of day.
-" We use dark for night, light for day time
-function! SetColorSchemeTime()
-  let hr = str2nr(strftime('%H'))
-  if hr <= 7
-    let i = 0
-  elseif hr <= 20
-    let i = 1
-  else
-    let i = 0
-  endif
-  if i == 0
-	  call DarkColorScheme()
-  else
-	  call LightColorScheme()
-  endif
-endfunction
-
-function! LightColorScheme()
-	let g:solarized_style="light"
-	set background=light
-	exec "colo" g:colo_name
-	redraw
-endfunction
-
-function! DarkColorScheme()
-	let g:solarized_style="dark"
-	set background=dark
-	exec "colo" g:colo_name
-	redraw
-endfunction
-
-function! ToggleBackground()
-    if (g:solarized_style=="dark")
-		call LightColorScheme()
-	else
-		call DarkColorScheme()
-	endif
-endfunction
-
-command! Togbg call ToggleBackground()
-nnoremap <F5> :call ToggleBackground()<CR>
-inoremap <F5> <ESC>:call ToggleBackground()<CR>a
-vnoremap <F5> <ESC>:call ToggleBackground()<CR>
-
-command -bar -nargs=0 SetColorSchemeTime :call SetColorSchemeTime()
-command -bar -nargs=0 LightColorScheme :call LightColorScheme()
-command -bar -nargs=0 DarkColorScheme :call DarkColorScheme()
-nnoremap <S-F7> :SetColorSchemeTime()<CR>
-
-"colorscheme vividchalk
-"colorscheme zenburn
-"set background=dark
-"colorscheme solarized
-
-if (!has('gui_running'))
-	let g:solarized_termcolors=16
-endif
-
-" avoid calling functions to set :colo, since it flashes nasty
-set background=dark
-let g:solarized_style="dark"
-let g:colo_name="solarized"
-let g:solarized_hitrail=1
-let g:solarized_menu=0
-colo solarized
+let g:threesome_wrap = "nowrap"
 
 " }}}
 
-" function for lazy loading.
+" Fugitive {{{
+
+nnoremap <leader>gd :Gdiff<cr>
+nnoremap <leader>gs :Gstatus<cr>
+nnoremap <leader>gw :Gwrite<cr>
+nnoremap <leader>ga :Gadd<cr>
+nnoremap <leader>gb :Gblame<cr>
+nnoremap <leader>gco :Gcheckout<cr>
+nnoremap <leader>gci :Gcommit<cr>
+nnoremap <leader>gm :Gmove<cr>
+nnoremap <leader>gr :Gremove<cr>
+nnoremap <leader>gl :Shell git gl -18<cr>:wincmd \|<cr>
+
+augroup ft_fugitive
+    au!
+
+    au BufNewFile,BufRead .git/index setlocal nolist
+augroup END
+
+" "Hub"
+nnoremap <leader>H :Gbrowse<cr>
+vnoremap <leader>H :Gbrowse<cr>
+
+" }}}
+" Function for lazy loading ------------------------------------- {{{
 " Should be modified for all possible lazy plugins
 " by adding correct mappings
 func! s:LazyStart(plugin, mapping)
@@ -604,7 +903,10 @@ func! s:LazyStart(plugin, mapping)
     endif
     execute 'so '.plug_dir.a:plugin.'.vim'
 	execute "normal " . g:mapleader . a:mapping
-endfunc
+endfunction
+" }}}
+
+" }}}
 
 " Allow local configuration to overcome global
 if filereadable(expand("~/.vim_local"))
