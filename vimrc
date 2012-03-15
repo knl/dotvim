@@ -484,6 +484,12 @@ nmap <leader>SA :SessionSaveAs<CR>
 
 " ,e to fast finding files. just type beginning of a name and hit TAB
 nmap <leader>e :e **/
+
+" Yank to OS X pasteboard.
+noremap Y "*y
+
+" Paste from OS X pasteboard without messing up indent.
+noremap P :set paste<CR>"*p<CR>:set nopaste<CR>
 " }}}
 " Utility functions ------------------------------------------------------- {{{
 
