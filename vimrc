@@ -659,6 +659,10 @@ nnoremap <leader>i :call IndentGuides()<cr>
 
 " }}}
 
+" Smart Tabs {{{
+let g:ctab_filetype_maps = 1
+" }}}
+
 " Powerline {{{
 
 let g:Powerline_symbols = 'fancy'
@@ -710,6 +714,9 @@ let g:SuperTabMappingForward = '<tab>'
 let g:SuperTabMappingBackward = '<s-tab>'
 
 let g:SuperTabDefaultCompletionType = "<c-n>"
+
+" prevent expansion of CR, negatively impacts Smart Tabs and delimitmate
+let g:SuperTabCrMapping = 0
 " }}}
 
 " miniBufExplorer {{{

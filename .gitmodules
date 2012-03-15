@@ -130,3 +130,6 @@
 [submodule "bundles/powerline"]
 	path = bundles/powerline
 	url = https://github.com/Lokaltog/vim-powerline.git
+[submodule "bundles/smarttabs"]
+	path = bundles/smarttabs
+	url = git://github.com/vim-scripts/Smart-Tabs.git
