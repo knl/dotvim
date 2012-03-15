@@ -273,7 +273,6 @@ set virtualedit+=block
 
 " extended '%' mapping for if/then/else/end etc
 runtime macros/matchit.vim
-map <tab> %
 
 " Made D behave
 nnoremap D d$
