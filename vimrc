@@ -35,8 +35,6 @@ set hidden
 set visualbell
 set laststatus=2
 
-set cpoptions+=J
-
 set autoindent		" always set autoindenting on
 set smartindent     " smart indenting
 set copyindent		" copy indent from previous line on autoindent
