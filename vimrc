@@ -135,22 +135,8 @@ let bash_is_sh=1
 syntax on
 set background=dark
 
-if (!has('gui_running'))
-	let g:solarized_termcolors=16
-endif
-
 " avoid calling functions to set :colo, since it flashes nasty
-let g:solarized_style="dark"
-let g:colo_name="solarized"
-let g:solarized_hitrail=1
-let g:solarized_menu=0
-
-if (!has('gui_running'))
-	let g:solarized_termcolors=16
-    colorscheme solarized 
-else 
-    colorscheme molokai
-endif
+colorscheme molokai
 "
 " Highlight VCS conflict markers
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
@@ -159,53 +145,6 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 hi User1 term=bold,reverse cterm=bold ctermfg=4 ctermbg=2 gui=bold guifg=Blue guibg=#44aa00
 
 hi SpellErrors guibg=red guifg=black ctermbg=red ctermfg=black
-
-" Set color scheme according to current time of day (with solarized)
-" We use dark for night, light for day time
-function! SetColorSchemeTime() " {{{
-  let hr = str2nr(strftime('%H'))
-  if hr <= 7
-    let i = 0
-  elseif hr <= 20
-    let i = 1
-  else
-    let i = 0
-  endif
-  if i == 0
-	  call DarkColorScheme()
-  else
-	  call LightColorScheme()
-  endif
-endfunction " }}}
-function! LightColorScheme() " {{{
-	let g:solarized_style="light"
-	set background=light
-	exec "colo" g:colo_name
-	redraw
-endfunction " }}}
-function! DarkColorScheme() " {{{
-	let g:solarized_style="dark"
-	set background=dark
-	exec "colo" g:colo_name
-	redraw
-endfunction " }}}
-function! ToggleBackground() " {{{
-    if (g:solarized_style=="dark")
-		call LightColorScheme()
-	else
-		call DarkColorScheme()
-	endif
-endfunction " }}}
-
-command! Togbg call ToggleBackground()
-nnoremap <F5> :call ToggleBackground()<CR>
-inoremap <F5> <ESC>:call ToggleBackground()<CR>a
-vnoremap <F5> <ESC>:call ToggleBackground()<CR>
-
-command -bar -nargs=0 SetColorSchemeTime :call SetColorSchemeTime()
-command -bar -nargs=0 LightColorScheme :call LightColorScheme()
-command -bar -nargs=0 DarkColorScheme :call DarkColorScheme()
-nnoremap <S-F7> :SetColorSchemeTime()<CR>
 
 " }}}
 " }}} 

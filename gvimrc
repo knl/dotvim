@@ -31,4 +31,4 @@ let g:solarized_italic=0
 autocmd Filetype tex hi link EasyMotionTarget ErrorMsg 
 autocmd Filetype tex hi link EasyMotionShade  Comment
 
-colorscheme molokai
+"colorscheme molokai
