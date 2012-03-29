@@ -63,7 +63,7 @@ set linebreak
 set relativenumber
 set ttyfast
 
-set cinoptions=:0,(s,u0,U1,g0,t0
+set cinoptions=:0,(0,u0,w1,Ws,g0,t0
 
 set dictionary=/usr/share/dict/words
 
@@ -91,10 +91,9 @@ augroup END
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
-set expandtab " expand tabs
-set shiftround		" use a multiple of sw for <
+set noexpandtab " do not expand tabs
+set shiftround  " use a multiple of sw for <
 set smarttab
-set wrap
 set textwidth=80
 set formatoptions=qrn1
 set colorcolumn=+1
@@ -532,8 +531,9 @@ if has("autocmd")
 
 	augroup ft_c 
     	au!
-    	autocmd FileType c      setlocal foldmethod=syntax nofoldenable
-    	autocmd FileType cpp    setlocal foldmethod=syntax nofoldenable
+    	autocmd FileType make   setlocal nofoldenable
+    	autocmd FileType c      setlocal nofoldenable
+    	autocmd FileType cpp    setlocal nofoldenable
 		autocmd FileType objc   setlocal ts=8 sw=8 sts=8 ai  fdm=manual
 		"autocmd FileType h	     setlocal ts=8 sw=8 sts=8 ai tw=0 noexpandtab fdm=manual
 		"autocmd FileType c	     setlocal ts=8 sw=8 sts=8 cindent tw=0 cino= ai noexpandtab fdm=manual
