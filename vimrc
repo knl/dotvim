@@ -31,7 +31,7 @@ set backspace=indent,eol,start		" allow backspacing over everything in insert mo
 set guioptions-=T       " disable toolbar"
 set showmode
 set showcmd
-set hidden
+set nohidden
 set visualbell
 set laststatus=2
 
