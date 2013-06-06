@@ -133,3 +133,18 @@
 [submodule "bundles/smarttabs"]
 	path = bundles/smarttabs
 	url = git://github.com/vim-scripts/Smart-Tabs.git
+[submodule "bundles/vitality"]
+	path = bundles/vitality
+	url = git://github.com/sjl/vitality.vim.git
+[submodule "bundles/ycm"]
+	path = bundles/ycm
+	url = git://github.com/Valloric/YouCompleteMe.git
+[submodule "bundles/fireplace"]
+	path = bundles/fireplace
+	url = git://github.com/tpope/vim-fireplace.git
+[submodule "bundles/vim-classpath"]
+	path = bundles/vim-classpath
+	url = git://github.com/tpope/vim-classpath.git
+[submodule "bundles/clojure-static"]
+	path = bundles/clojure-static
+	url = git://github.com/guns/vim-clojure-static.git
