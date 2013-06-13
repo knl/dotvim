@@ -20,6 +20,8 @@ ln -s $CURDIR/gvimrc ~/.gvimrc
 
 # Necessary directories for various plugins
 mkdir $CURDIR/tmp
+mkdir $CURDIR/tmp/undo
+mkdir $CURDIR/backup
 mkdir $CURDIR/sessions
 
 # setup bundles

@@ -154,7 +154,7 @@ if filereadable(expand("$HOME/.vim/external.vim"))
 endif
 
 " Save when losing focus
-au FocusLost * :wa
+au FocusLost * silent! wa
 
 " Resize splits when the window is resized
 au VimResized * exe "normal! \<c-w>="
@@ -527,6 +527,12 @@ if has("autocmd")
 	" When dealing with TeX, we need autocomplete of picture names
 	autocmd Filetype tex setlocal wildignore-=*.jpg,*.bmp,*.gif,*.png,*.jpeg
 
+	" OrgMode {{{
+	augroup ft_org
+		au! BufRead,BufWrite,BufWritePost,BufNewFile *.org 
+		au  BufEnter *.org            call org#SetOrgFileType()
+	augroup END " }}}
+
 	" C {{{
 
 	augroup ft_c 
@@ -742,7 +748,7 @@ let g:Conque_TERM = 'xterm'
 nmap <leader>sh :ConqueSplit bash<cr>
 
 " ,r to open vimshell window
-nmap <leader>r :ConqueSplit
+"nmap <leader>r :ConqueSplit
 " }}}
 
 " A-CPP (.h <-> .c/cpp switching) {{{
@@ -819,25 +825,25 @@ let Tex_FoldedMisc=""
 let VCSCommandEnableBufferSetup=1
 " }}}
 
-" Threesome {{{
-let g:threesome_initial_mode = "grid"
+" Splice {{{
+let g:splice_initial_mode = "grid"
 
-let g:threesome_initial_layout_grid = 1
-let g:threesome_initial_layout_loupe = 0
-let g:threesome_initial_layout_compare = 0
-let g:threesome_initial_layout_path = 0
+let g:splice_initial_layout_grid = 1
+let g:splice_initial_layout_loupe = 0
+let g:splice_initial_layout_compare = 0
+let g:splice_initial_layout_path = 0
 
-let g:threesome_initial_diff_grid = 1
-let g:threesome_initial_diff_loupe = 0
-let g:threesome_initial_diff_compare = 0
-let g:threesome_initial_diff_path = 0
+let g:splice_initial_diff_grid = 1
+let g:splice_initial_diff_loupe = 0
+let g:splice_initial_diff_compare = 0
+let g:splice_initial_diff_path = 0
 
-let g:threesome_initial_scrollbind_grid = 0
-let g:threesome_initial_scrollbind_loupe = 0
-let g:threesome_initial_scrollbind_compare = 0
-let g:threesome_initial_scrollbind_path = 0
+let g:splice_initial_scrollbind_grid = 0
+let g:splice_initial_scrollbind_loupe = 0
+let g:splice_initial_scrollbind_compare = 0
+let g:splice_initial_scrollbind_path = 0
 
-let g:threesome_wrap = "nowrap"
+let g:splice_wrap = "nowrap"
 
 " }}}
 

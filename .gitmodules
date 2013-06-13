@@ -148,3 +148,12 @@
 [submodule "bundles/clojure-static"]
 	path = bundles/clojure-static
 	url = git://github.com/guns/vim-clojure-static.git
+[submodule "bundles/VimOrganizer"]
+	path = bundles/VimOrganizer
+	url = git://github.com/hsitz/VimOrganizer.git
+[submodule "bundles/NarrowRegion"]
+	path = bundles/NarrowRegion
+	url = git://github.com/chrisbra/NrrwRgn.git
+[submodule "bundles/splice"]
+	path = bundles/splice
+	url = https://github.com/sjl/splice.vim.git
