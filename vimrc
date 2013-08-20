@@ -6,7 +6,7 @@
 " Preamble ---------------------------------------------------------------- {{{
 
 filetype off
-call pathogen#infect('bundles')
+call pathogen#infect('bundles/{}')
 "call pathogen#helptags()
 filetype plugin indent on
 set nocompatible
